@@ -1,0 +1,20 @@
+{
+  "name": "design_handoff_backend",
+  "version": "1.0.0",
+  "description": "**Target:** Build in an agentic IDE (Antigravity) against the GitHub + Netlify stack. **Date:** July 2026. **Budget constraint: everything must run on free tiers.** **Priorities in order: (1) safety of adverse-event reports, (2) reliability, (3) zero cost.**",
+  "main": "products-data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@sparticuz/chromium": "^149.0.0",
+    "dotenv": "^17.4.2",
+    "jsdom": "^29.1.1",
+    "puppeteer-core": "^25.3.0",
+    "sharp": "^0.35.3"
+  }
+}

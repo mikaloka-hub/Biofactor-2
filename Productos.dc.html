@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #FAFBFD; -webkit-font-smoothing: antialiased; }
+    a { color: #2563EB; }
+    a:hover { color: #1D4ED8; }
+    @media (max-width: 640px) { [data-media-card] { height: 280px !important; } [data-hero="true"] { padding: 112px 24px 72px 24px !important; } }
+    @media (max-width: 960px) { #main-nav { display: none !important; } #menu-toggle { display: flex !important; } }
+    @media (max-width: 1024px) {
+      #catalog-wrap { flex-direction: column !important; }
+      #detail-panel { position: fixed !important; inset: 0 !important; width: auto !important; max-height: none !important; height: auto !important; border-radius: 0 !important; z-index: 200 !important; padding: 24px !important; overflow-y: auto !important; }
+    }
+  </style>
+</helmet>
+
+<div style="font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; background: #FAFBFD; color: #3E4D5E; min-width: 320px;" data-screen-label="Productos">
+
+  <sc-if value="{{ showGate }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; background: rgba(250,251,253,0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 16px;">
+      <div style="background: #ffffff; padding: 48px; border-radius: 16px; max-width: 520px; width: 100%; box-shadow: 0 0 48px rgba(11,19,31,0.12); border: 1px solid rgba(11,19,31,0.05); text-align: center;">
+        <h3 data-en="Restricted Information" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 500; font-size: 26px; letter-spacing: -0.02em; color: #0B131F; margin: 0 0 16px 0;">Información Exclusiva</h3>
+        <p data-en-html="The content of this section (pharmacological products, clinical indications, storage conditions) is intended exclusively for <strong style=&quot;color:#0B131F&quot;>healthcare professionals</strong>. To continue, please confirm that you are accredited to access it." style="font-size: 15px; line-height: 1.7; color: #3E4D5E; margin: 0 0 32px 0;">El contenido de esta sección (productos farmacológicos, indicaciones clínicas, conservación) está dirigido exclusivamente a <strong style="color: #0B131F;">profesionales de la salud</strong>. Para continuar, por favor confirme que usted está acreditado para acceder.</p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="index.html" data-en="Back to home" style="flex: 1; min-width: 180px; padding: 14px 24px; border-radius: 12px; font-size: 14px; font-weight: 500; border: 1px solid rgba(11,19,31,0.12); color: #3E4D5E; text-decoration: none; transition: background 0.3s;" style-hover="background: #F1F5F9; color: #0B131F;">Regresar al inicio</a>
+          <button onClick="{{ acceptGate }}" data-en="Yes, I am a professional" style="flex: 1; min-width: 180px; padding: 14px 24px; border-radius: 12px; font-size: 14px; font-weight: 500; background: #E11D48; color: #ffffff; border: none; cursor: pointer; box-shadow: 0 1px 2px rgba(11,19,31,0.08); transition: background 0.3s; font-family: inherit;" style-hover="background: #BE123C;">Sí, soy profesional</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <header style="position: sticky; top: 0; z-index: 50; width: 100%; background: rgba(250,251,253,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(11,19,31,0.06);">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="assets/biofactor_logo.png" alt="Biofactor" style="height: 46px; width: auto; display: block;">
+      </a>
+      <nav id="main-nav" style="display: flex; align-items: center; gap: 28px;">
+        <a href="index.html" data-navlink="true" data-en="Home" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Inicio</a>
+        <a href="Nosotros.dc.html" data-navlink="true" data-en="About Us" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Nosotros</a>
+        <a href="Productos.dc.html" data-navlink="true" data-en="Products" style="font-size: 13px; font-weight: 600; color: #0B131F; text-decoration: none; letter-spacing: 0.01em;">Productos</a>
+        <a href="Farmacovigilancia.dc.html" data-navlink="true" data-en="Pharmacovigilance" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Farmacovigilancia</a>
+        <a href="Licencias.dc.html" data-navlink="true" data-en="Licensing &amp; Business" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Licencias y Negocios</a>
+        <div style="display: flex; align-items: center; background: #F1F5F9; border: 1px solid rgba(11,19,31,0.06); border-radius: 100px; padding: 3px;">
+          <button onClick="{{ setEs }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: {{ esBg }}; color: {{ esColor }}; box-shadow: {{ esShadow }};">ES</button>
+          <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: {{ enBg }}; color: {{ enColor }}; box-shadow: {{ enShadow }};">EN</button>
+        </div>
+        <a href="Contacto.dc.html" data-en="Contact Us" style="background: #E11D48; color: #ffffff; padding: 11px 22px; border-radius: 12px; font-size: 13px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px rgba(11,19,31,0.08); transition: background 0.3s;" style-hover="background: #BE123C;">Contáctanos</a>
+      </nav>
+      <button id="menu-toggle" onClick="{{ toggleMenu }}" aria-label="Menú" style="display: none; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(11,19,31,0.12); border-radius: 12px; background: #FFFFFF; cursor: pointer; color: #0B131F; flex-shrink: 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: {{ burgerDisplay }};"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h16"></path></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: {{ closeDisplay }};"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="position: absolute; top: 80px; left: 0; right: 0; background: #FAFBFD; border-bottom: 1px solid rgba(11,19,31,0.08); box-shadow: 0 32px 48px rgba(11,19,31,0.16); padding: 12px 20px 24px 20px; display: flex; flex-direction: column; gap: 2px; z-index: 60;">
+        <a href="index.html" data-en="Home" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Inicio</a>
+        <a href="Nosotros.dc.html" data-en="About Us" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Nosotros</a>
+        <a href="Productos.dc.html" data-en="Products" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Productos</a>
+        <a href="Farmacovigilancia.dc.html" data-en="Pharmacovigilance" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Farmacovigilancia</a>
+        <a href="Licencias.dc.html" data-en="Licensing &amp; Business" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Licencias y Negocios</a>
+        <div style="height: 1px; background: rgba(11,19,31,0.08); margin: 12px 0;"></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 12px;">
+          <span data-en="Language" style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #8A97A6;">Idioma</span>
+          <div style="display: flex; align-items: center; background: #F1F5F9; border: 1px solid rgba(11,19,31,0.06); border-radius: 100px; padding: 3px;">
+            <button onClick="{{ setEs }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 8px 16px; border-radius: 100px; background: {{ esBg }}; color: {{ esColor }}; box-shadow: {{ esShadow }};">ES</button>
+            <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 8px 16px; border-radius: 100px; background: {{ enBg }}; color: {{ enColor }}; box-shadow: {{ enShadow }};">EN</button>
+          </div>
+        </div>
+        <a href="Contacto.dc.html" data-en="Contact Us" style="display: block; margin-top: 12px; background: #E11D48; color: #ffffff; padding: 15px; border-radius: 12px; font-size: 14px; font-weight: 500; text-decoration: none; text-align: center;">Contáctanos</a>
+      </div>
+    </sc-if>
+  </header>
+
+  <section data-hero="true" style="position: relative; overflow: hidden; padding: 152px 32px 88px 32px; text-align: center; background: #0B1F3A;">
+    <img src="assets/Pharma_worker.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,31,58,0.8) 0%, rgba(11,31,58,0.55) 55%, rgba(11,31,58,0.92) 100%);"></div>
+    <div style="position: relative; max-width: 768px; margin: 0 auto;">
+      <h1 data-en="Product Portfolio" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: clamp(42px, 5.5vw, 64px); line-height: 1.1; letter-spacing: -0.03em; color: #FAFBFD; margin: 0 0 24px 0;">Portafolio de Productos</h1>
+      <p data-en="Pharmaceuticals and medical devices developed under the highest global quality standards." style="font-size: 18px; line-height: 1.7; color: rgba(250,251,253,0.8); max-width: 620px; margin: 0 auto;">Farmacéuticos y dispositivos médicos desarrollados bajo los más altos estándares de calidad global.</p>
+    </div>
+  </section>
+
+  <section style="max-width: 1280px; margin: 0 auto; padding: 32px; display: flex; justify-content: center;">
+    <div style="width: 100%; max-width: 720px; position: relative; display: flex; align-items: center; gap: 8px; background: #ffffff; border: 1px solid rgba(11,19,31,0.1); border-radius: 100px; box-shadow: 0 1px 2px rgba(11,19,31,0.05); padding: 6px 6px 6px 20px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A97A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+      <input type="text" value="{{ searchTerm }}" onChange="{{ onSearch }}" data-en-ph="Search by product, active ingredient or area..." placeholder="Buscar por producto, principio activo o área..." style="flex: 1; min-width: 0; border: none; outline: none; background: transparent; padding: 12px 8px; font-size: 16px; color: #0B131F; font-family: inherit;">
+      <div style="position: relative; flex-shrink: 0;">
+        <button onClick="{{ toggleFilter }}" style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 100px; border: 1px solid {{ filterBorder }}; background: {{ filterBg }}; color: {{ filterColor }}; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; transition: background 0.3s;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+          <span>{{ filterLabel }}</span>
+        </button>
+        <sc-if value="{{ isFilterOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; right: 0; top: calc(100% + 12px); width: 260px; background: #ffffff; border-radius: 16px; box-shadow: 0 0 48px rgba(11,19,31,0.14); border: 1px solid rgba(11,19,31,0.05); padding: 8px 0; z-index: 60; overflow: hidden;">
+            <sc-for list="{{ filterOptions }}" as="opt" hint-placeholder-count="5">
+              <button onClick="{{ opt.pick }}" style="display: block; width: 100%; text-align: left; padding: 12px 20px; font-size: 14px; font-weight: 500; border: none; background: {{ opt.bg }}; color: {{ opt.color }}; cursor: pointer; font-family: inherit; transition: background 0.2s;" style-hover="background: #F1F5F9;">{{ opt.label }}</button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalog-wrap" style="max-width: 1280px; margin: 0 auto; padding: 16px 32px 96px 32px; display: flex; gap: 48px; align-items: flex-start; min-height: 70vh;">
+
+    <div style="flex: 1; min-width: 0;">
+      <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align: center; padding: 96px 24px; background: #ffffff; border-radius: 16px; border: 1px solid rgba(11,19,31,0.05);">
+          <h3 style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 500; font-size: 20px; color: #0B131F; margin: 0 0 8px 0;">{{ noResultsTitle }}</h3>
+          <p style="font-size: 15px; color: #3E4D5E; margin: 0;">{{ noResultsBody }}</p>
+        </div>
+      </sc-if>
+      <sc-for list="{{ filteredCategories }}" as="cat" hint-placeholder-count="2">
+        <div style="margin-bottom: 56px;">
+          <h3 style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 500; font-size: 24px; letter-spacing: -0.02em; color: #0B131F; margin: 0 0 24px 0; padding-bottom: 16px; border-bottom: 1px solid rgba(11,19,31,0.07);">{{ cat.category }}</h3>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <sc-for list="{{ cat.items }}" as="item" hint-placeholder-count="3">
+              <div onClick="{{ item.select }}" role="button" tabindex="0" style="background: {{ item.bg }}; padding: 24px; border-radius: 16px; border: 1px solid {{ item.border }}; display: flex; align-items: center; justify-content: space-between; gap: 24px; cursor: pointer; transition: border-color 0.3s, box-shadow 0.3s;" style-hover="border-color: rgba(11,19,31,0.25); box-shadow: 0 1px 3px rgba(11,19,31,0.06);">
+                <div style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 20px;">
+                  <sc-if value="{{ item.image }}" hint-placeholder-val="{{ false }}">
+                    <img src="{{ item.image }}" alt="" style="width: 56px; height: 56px; border-radius: 10px; object-fit: cover; flex-shrink: 0; background: #ffffff; border: 1px solid rgba(11,19,31,0.06);">
+                  </sc-if>
+                <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                    <span style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 500; font-size: 20px; letter-spacing: -0.02em; color: {{ item.titleColor }};">{{ item.title }}</span>
+                    <span style="background: {{ item.badgeBg }}; color: {{ item.badgeColor }}; padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: {{ item.badgeDisplay }};">{{ item.badgeLabel }}</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 13px;">
+                    <span style="color: #3E4D5E; font-weight: 500; background: #ffffff; padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(11,19,31,0.06);">{{ item.principio }}</span>
+                    <span style="color: rgba(62,77,94,0.4);">•</span>
+                    <span style="color: #3E4D5E; font-weight: 500;">{{ item.cat }}</span>
+                  </div>
+                </div>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ item.arrowColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ selected }}" hint-placeholder-val="{{ false }}">
+      <div id="detail-panel" style="width: 46%; flex-shrink: 0; background: #F1F5F9; border-radius: 16px; padding: 48px; position: sticky; top: 108px; max-height: calc(100vh - 132px); overflow-y: auto; z-index: 40;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px;">
+          <span style="display: inline-block; background: #ffffff; color: #0B131F; font-weight: 500; padding: 7px 16px; border-radius: 100px; font-size: 12px; border: 1px solid rgba(11,19,31,0.05); box-shadow: 0 1px 2px rgba(11,19,31,0.05);">{{ selected.cat }}</span>
+          <button onClick="{{ clearSelected }}" aria-label="Cerrar" style="padding: 8px; background: transparent; border: none; border-radius: 12px; color: #8A97A6; cursor: pointer; transition: color 0.3s, background 0.3s;" style-hover="color: #0B131F; background: #FAFBFD;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          </button>
+        </div>
+        <sc-if value="{{ selected.image }}" hint-placeholder-val="{{ false }}">
+          <img src="{{ selected.image }}" alt="" style="width: 100%; max-height: 220px; object-fit: contain; background: #ffffff; border-radius: 12px; border: 1px solid rgba(11,19,31,0.06); margin-bottom: 32px; display: block;">
+        </sc-if>
+        <div style="margin-bottom: 40px;">
+          <h2 style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: clamp(32px, 3.5vw, 48px); line-height: 1.1; letter-spacing: -0.03em; color: #0B131F; margin: 0; overflow-wrap: break-word;">{{ selected.title }}</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <div>
+            <h5 data-en="Active Ingredient" style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: #8A97A6; margin: 0 0 8px 0;">Principio Activo</h5>
+            <p style="font-size: 17px; color: #0B131F; margin: 0; line-height: 1.5;">{{ selected.principio }}</p>
+          </div>
+          <div style="height: 1px; background: rgba(11,19,31,0.08);"></div>
+          <div>
+            <h5 data-en="Presentation" style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: #8A97A6; margin: 0 0 8px 0;">Presentación</h5>
+            <p style="font-size: 15px; color: #0B131F; margin: 0; line-height: 1.7;">{{ selected.presentacion }}</p>
+          </div>
+          <div style="height: 1px; background: rgba(11,19,31,0.08);"></div>
+          <div>
+            <h5 data-en="Clinical Indications" style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: #8A97A6; margin: 0 0 8px 0;">Indicaciones Clínicas</h5>
+            <p style="font-size: 15px; color: #0B131F; margin: 0; line-height: 1.7;">{{ selected.indicaciones }}</p>
+          </div>
+          <div style="height: 1px; background: rgba(11,19,31,0.08);"></div>
+          <div>
+            <h5 data-en="Storage" style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: #8A97A6; margin: 0 0 8px 0;">Almacenamiento</h5>
+            <p style="font-size: 15px; color: #0B131F; margin: 0; line-height: 1.7;">{{ selected.almacenamiento }}</p>
+          </div>
+          <div style="height: 1px; background: rgba(11,19,31,0.08);"></div>
+          <div>
+            <h5 data-en="GLN Code" style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: #8A97A6; margin: 0 0 8px 0;">Código GLN</h5>
+            <p style="display: inline-block; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: #3E4D5E; background: #ffffff; border: 1px solid rgba(11,19,31,0.05); padding: 8px 12px; border-radius: 8px; margin: 0; box-shadow: 0 1px 2px rgba(11,19,31,0.04);">{{ selected.gln }}</p>
+          </div>
+        </div>
+        <sc-if value="{{ selected.pdf }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top: 32px;">
+            <a href="{{ selected.pdf }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; background: #0B131F; color: #FAFBFD; font-size: 14px; font-weight: 500; padding: 14px 24px; border-radius: 100px; text-decoration: none; transition: background 0.3s;" style-hover="background: #1F2D3D;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span data-en="Product information (PDF)">Información del producto (PDF)</span>
+            </a>
+          </div>
+        </sc-if>
+        <div style="margin-top: 40px;">
+          <a href="Farmacovigilancia.dc.html" data-en="Report an Adverse Event →" style="display: inline-flex; align-items: center; font-size: 13px; font-weight: 500; color: #E11D48; text-decoration: none; transition: color 0.3s;" style-hover="color: #BE123C;">Reportar Evento Adverso →</a>
+        </div>
+      </div>
+    </sc-if>
+  </section>
+
+  <footer style="background: #0B1F3A; border-top: 1px solid rgba(250,251,253,0.08); padding: 96px 0 32px 0;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 64px; margin-bottom: 64px;">
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <img src="assets/biofactor_logo.png" alt="Biofactor" style="height: 40px; width: auto; filter: brightness(0) invert(1); opacity: 0.92; align-self: flex-start;">
+          <p data-en="Improving quality of life through responsible, ethical pharmaceutical innovation." style="max-width: 300px; font-size: 13px; line-height: 1.7; color: rgba(250,251,253,0.68); margin: 0;">Mejorando la calidad de vida a través de innovación farmacéutica responsable y ética.</p>
+        </div>
+        <div>
+          <h3 data-en="Contact" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 500; color: #FAFBFD; font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; margin: 0 0 24px 0;">Contacto</h3>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <span data-en-html="Estomba 1058, C1427COX,<br>Autonomous City of Buenos Aires, Argentina." style="font-size: 13px; line-height: 1.7; color: rgba(250,251,253,0.72);">Estomba 1058, C1427COX,<br>Cdad. Aut. de Buenos Aires, Argentina.</span>
+            <span style="font-size: 13px; color: rgba(250,251,253,0.72);">+54 11 4551 7110</span>
+            <span style="font-size: 13px; color: rgba(250,251,253,0.72);">info@biofactor.com.ar</span>
+          </div>
+        </div>
+        <div>
+          <h3 data-en="Navigation" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 500; color: #FAFBFD; font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; margin: 0 0 24px 0;">Navegación</h3>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <a href="index.html" data-en="Home" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Inicio</a>
+            <a href="Nosotros.dc.html" data-en="About Us" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Nosotros</a>
+            <a href="Productos.dc.html" data-en="Products" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Productos</a>
+            <a href="Farmacovigilancia.dc.html" data-en="Pharmacovigilance" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Farmacovigilancia</a>
+            <a href="Licencias.dc.html" data-en="Licensing &amp; Business" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Licencias y Negocios</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius: 16px; overflow: hidden; border: 1px solid rgba(250,251,253,0.14); height: 300px; margin-bottom: 32px; background: #0E2642;">
+        <iframe title="Biofactor — Estomba 1058, Ciudad Autónoma de Buenos Aires" src="https://maps.google.com/maps?q=Estomba%201058%2C%20Ciudad%20Aut%C3%B3noma%20de%20Buenos%20Aires%2C%20Argentina&amp;z=16&amp;output=embed" style="display: block; width: 100%; height: 100%; border: 0;" loading="lazy"></iframe>
+      </div>
+      <div data-en="BIOFACTOR notes that the Internet is a global medium and the pharmaceutical industry is subject to country-specific regulations. This information is intended exclusively for healthcare professionals." style="background: rgba(250,251,253,0.06); color: rgba(250,251,253,0.6); font-size: 12px; line-height: 1.6; padding: 16px 24px; text-align: center; font-weight: 500; border: 1px solid rgba(250,251,253,0.1); border-radius: 8px; margin-bottom: 32px;">BIOFACTOR establece que Internet es un medio global y la industria farmacéutica está sujeta a regulaciones por país. La información es exclusivamente para profesionales de la salud.</div>
+      <div style="border-top: 1px solid rgba(250,251,253,0.1); padding-top: 32px; font-size: 12px; color: rgba(250,251,253,0.5);">
+        <p data-en="Biofactor SA © 2026. All rights reserved." style="margin: 0;">Biofactor SA © 2026. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { lang: 'es', confirmed: true, selectedTitle: null, searchTerm: '', category: null, filterOpen: false, remoteData: null };
+  }
+
+  // ---- Client-editable product catalog -------------------------------------------------
+  // Products are normally read from a Google Sheet the client edits directly. Steps to set up:
+  // 1. Create a Google Sheet using productos_template.csv as the starting columns/rows
+  //    (File > Import > Upload in Google Sheets).
+  // 2. File > Share > Publish to web > select the sheet tab > format "Comma-separated values (.csv)" > Publish.
+  // 3. Paste the resulting URL below as SHEET_CSV_URL. Leave it empty to always use the
+  //    built-in fallback catalog (getFallbackData) below.
+  // If the sheet is unreachable or empty, the page automatically falls back to the last
+  // known-good catalog embedded in this file, so the site never breaks.
+  static SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS9iRYprHeR1E0sWld4J9nqKe67FKkNQO2uNrhe_K7x1DZgALFpkOY4P0Fz3cuNInOtGfFlnplEOg2e/pub?gid=2087478406&single=true&output=csv';
+
+  componentDidMount() {
+    let stored = 'es';
+    try { stored = localStorage.getItem('bf_lang') || 'es'; } catch (e) {}
+    const patch = { lang: stored };
+    try { if (!sessionStorage.getItem('isMedicalProfessional')) patch.confirmed = false; } catch (e) {}
+    this.applyLang(stored);
+    this.setState(patch);
+    this.loadRemoteData();
+  }
+
+  async loadRemoteData() {
+    const url = this.constructor.SHEET_CSV_URL;
+    if (!url) return;
+    try {
+      const mod = await import('./products-data.js');
+      const cats = await mod.fetchSheetData(url);
+      this.setState({ remoteData: cats });
+    } catch (e) {
+      console.warn('No se pudo cargar el catálogo desde Google Sheets, usando datos de respaldo.', e);
+    }
+  }
+
+  componentDidUpdate() { this.applyLang(this.state.lang); }
+
+  applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach((el) => {
+      if (!el.hasAttribute('data-es')) el.setAttribute('data-es', el.textContent);
+      el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-es');
+    });
+    document.querySelectorAll('[data-en-html]').forEach((el) => {
+      if (!el.hasAttribute('data-es-html')) el.setAttribute('data-es-html', el.innerHTML);
+      el.innerHTML = lang === 'en' ? el.getAttribute('data-en-html') : el.getAttribute('data-es-html');
+    });
+    document.querySelectorAll('[data-en-ph]').forEach((el) => {
+      if (!el.hasAttribute('data-es-ph')) el.setAttribute('data-es-ph', el.getAttribute('placeholder') || '');
+      el.setAttribute('placeholder', lang === 'en' ? el.getAttribute('data-en-ph') : el.getAttribute('data-es-ph'));
+    });
+    try { document.documentElement.lang = lang; } catch (e) {}
+  }
+
+  setLang(lang) {
+    try { localStorage.setItem('bf_lang', lang); } catch (e) {}
+    this.setState({ lang: lang });
+  }
+
+  getData() {
+    if (this.state.remoteData) return this.state.remoteData;
+    if (this._data) return this._data;
+    // Datos de respaldo embebidos — se usan si el Google Sheet no está configurado o falla la carga.
+    this._data = [
+      { key: 'hema', category: { es: 'Hematología', en: 'Hematology' }, items: [
+        { title: 'Aimafix', status: 'new', gln: '7790000000101',
+          principio: { es: 'Factor IX de coagulación humano', en: 'Human coagulation Factor IX' },
+          presentacion: { es: 'Vial liofilizado + diluyente', en: 'Lyophilized vial + diluent' },
+          indicaciones: { es: 'Tratamiento y profilaxis de hemorragias en pacientes con Hemofilia B.', en: 'Treatment and prophylaxis of hemorrhages in patients with Hemophilia B.' },
+          almacenamiento: { es: 'Refrigeración (2 °C – 8 °C)', en: 'Refrigeration (2 °C – 8 °C)' } },
+        { title: 'AT III Kedrion', gln: '7790000000102',
+          principio: { es: 'Antitrombina III humana', en: 'Human Antithrombin III' },
+          presentacion: { es: 'Vial inyectable', en: 'Injectable vial' },
+          indicaciones: { es: 'Déficit congénito o adquirido de Antitrombina III.', en: 'Congenital or acquired Antithrombin III deficiency.' },
+          almacenamiento: { es: 'Refrigeración (2 °C – 8 °C)', en: 'Refrigeration (2 °C – 8 °C)' } },
+        { title: 'Bolsas de Sangre (TRO-DONEX)', gln: '7790000000103',
+          principio: { es: 'N/A (Dispositivo)', en: 'N/A (Device)' },
+          presentacion: { es: 'Bolsas estériles, múltiples formatos', en: 'Sterile bags, multiple formats' },
+          indicaciones: { es: 'Recolección y almacenamiento de sangre.', en: 'Blood collection and storage.' },
+          almacenamiento: { es: 'Temperatura ambiente controlada', en: 'Controlled room temperature' } },
+        { title: 'Emoclot', gln: '7790000000104',
+          principio: { es: 'Factor VIII de coagulación derivado del plasma', en: 'Plasma-derived coagulation Factor VIII' },
+          presentacion: { es: 'Vial inyectable', en: 'Injectable vial' },
+          indicaciones: { es: 'Hemofilia A y enfermedad de von Willebrand.', en: 'Hemophilia A and von Willebrand disease.' },
+          almacenamiento: { es: 'Refrigeración', en: 'Refrigeration' } },
+        { title: 'Emosint', gln: '7790000000105',
+          principio: { es: 'Desmopresina Acetato', en: 'Desmopressin Acetate' },
+          presentacion: { es: 'Ampollas', en: 'Ampoules' },
+          indicaciones: { es: 'Manejo de episodios hemorrágicos en hemofilia leve.', en: 'Management of bleeding episodes in mild hemophilia.' },
+          almacenamiento: { es: 'Refrigeración', en: 'Refrigeration' } },
+        { title: 'IG Vena', gln: '7790000000106',
+          principio: { es: 'Inmunoglobulina humana normal intravenosa', en: 'Normal human intravenous immunoglobulin' },
+          presentacion: { es: 'Solución inyectable', en: 'Injectable solution' },
+          indicaciones: { es: 'Inmunodeficiencias primarias y secundarias.', en: 'Primary and secondary immunodeficiencies.' },
+          almacenamiento: { es: 'Conservar a menos de 25 °C', en: 'Store below 25 °C' } },
+        { title: 'Immunorho', gln: '7790000000107',
+          principio: { es: 'Inmunoglobulina humana anti-D', en: 'Human anti-D immunoglobulin' },
+          presentacion: { es: 'Jeringa prellenada', en: 'Pre-filled syringe' },
+          indicaciones: { es: 'Profilaxis de inmunización al antígeno D (Rh0).', en: 'Prophylaxis of immunization to the D (Rh0) antigen.' },
+          almacenamiento: { es: 'Refrigeración (2 °C – 8 °C)', en: 'Refrigeration (2 °C – 8 °C)' } },
+        { title: 'Uman Albumin', gln: '7790000000108',
+          principio: { es: 'Albúmina humana', en: 'Human albumin' },
+          presentacion: { es: 'Solución 20 %', en: '20 % solution' },
+          indicaciones: { es: 'Mantenimiento del volumen sanguíneo.', en: 'Maintenance of blood volume.' },
+          almacenamiento: { es: 'Menor a 30 °C. No congelar.', en: 'Below 30 °C. Do not freeze.' } },
+        { title: 'Uman Complex', gln: '7790000000109',
+          principio: { es: 'Complejo Protrombínico humano', en: 'Human Prothrombin Complex' },
+          presentacion: { es: 'Vial inyectable', en: 'Injectable vial' },
+          indicaciones: { es: 'Reversión rápida de antagonistas de vitamina K.', en: 'Rapid reversal of vitamin K antagonists.' },
+          almacenamiento: { es: 'Refrigeración (2 °C – 8 °C)', en: 'Refrigeration (2 °C – 8 °C)' } }
+      ]},
+      { key: 'resp', category: { es: 'Respiratoria', en: 'Respiratory' }, items: [
+        { title: 'Airbude HFA', status: 'coming_soon', gln: '7790000000201',
+          principio: { es: 'Budesonida', en: 'Budesonide' },
+          presentacion: { es: 'Aerosol inhalatorio', en: 'Inhalation aerosol' },
+          indicaciones: { es: 'Tratamiento de mantenimiento del asma.', en: 'Asthma maintenance treatment.' },
+          almacenamiento: { es: 'Temperatura ambiente', en: 'Room temperature' } },
+        { title: 'Airsalbu', gln: '7790000000202',
+          principio: { es: 'Salbutamol', en: 'Salbutamol' },
+          presentacion: { es: 'Aerosol inhalatorio', en: 'Inhalation aerosol' },
+          indicaciones: { es: 'Alivio rápido del broncoespasmo.', en: 'Rapid relief of bronchospasm.' },
+          almacenamiento: { es: 'Temperatura ambiente', en: 'Room temperature' } },
+        { title: 'MaxAir (Aerocámaras)', gln: '7790000000203',
+          principio: { es: 'Cámara espaciadora valvulada', en: 'Valved spacer chamber' },
+          presentacion: { es: 'Unidad individual', en: 'Individual unit' },
+          indicaciones: { es: 'Asistencia en la aplicación de aerosoles inhalatorios.', en: 'Assistance in the administration of inhaled aerosols.' },
+          almacenamiento: { es: 'Conservar limpia y seca', en: 'Keep clean and dry' } }
+      ]},
+      { key: 'cardio', category: { es: 'Cardiología', en: 'Cardiology' }, items: [
+        { title: 'Streptofactor', gln: '7790000000301',
+          principio: { es: 'Estreptoquinasa', en: 'Streptokinase' },
+          presentacion: { es: 'Vial liofilizado', en: 'Lyophilized vial' },
+          indicaciones: { es: 'Infarto agudo de miocardio, trombosis venosa profunda.', en: 'Acute myocardial infarction, deep vein thrombosis.' },
+          almacenamiento: { es: 'Refrigeración', en: 'Refrigeration' } }
+      ]},
+      { key: 'analg', category: { es: 'Analgésico / Antiinflamatorio', en: 'Analgesic / Anti-inflammatory' }, items: [
+        { title: 'Vitabren', gln: '7790000000401',
+          principio: { es: 'Ibuprofeno IV', en: 'IV Ibuprofen' },
+          presentacion: { es: 'Solución inyectable', en: 'Injectable solution' },
+          indicaciones: { es: 'Tratamiento del dolor agudo moderado a severo.', en: 'Treatment of moderate to severe acute pain.' },
+          almacenamiento: { es: 'Temperatura ambiente', en: 'Room temperature' } }
+      ]}
+    ];
+    return this._data;
+  }
+
+  renderVals() {
+    const L = this.state.lang;
+    const data = this.getData();
+    const { selectedTitle, searchTerm, category, filterOpen, confirmed } = this.state;
+    const term = searchTerm.trim().toLowerCase();
+
+    const catName = (c) => c.category[L] || c.category.es;
+
+    const match = (it, c) =>
+      it.title.toLowerCase().includes(term) ||
+      (it.principio[L] || it.principio.es).toLowerCase().includes(term) ||
+      catName(c).toLowerCase().includes(term);
+
+    let selected = null;
+    for (const c of data) {
+      const hit = c.items.find((it) => it.title === selectedTitle);
+      if (hit) {
+        selected = {
+          title: hit.title, cat: catName(c), gln: hit.gln, image: hit.image || '', pdf: hit.pdf || '',
+          principio: hit.principio[L] || hit.principio.es,
+          presentacion: hit.presentacion[L] || hit.presentacion.es,
+          indicaciones: hit.indicaciones[L] || hit.indicaciones.es,
+          almacenamiento: hit.almacenamiento[L] || hit.almacenamiento.es
+        };
+        break;
+      }
+    }
+
+    const filteredCategories = data
+      .filter((c) => !category || c.key === category)
+      .map((c) => ({
+        category: catName(c),
+        items: c.items
+          .filter((it) => !term || match(it, c))
+          .map((it) => {
+            const isSel = it.title === selectedTitle;
+            const isNew = it.status === 'new';
+            const isComing = it.status === 'coming_soon';
+            return {
+              title: it.title,
+              image: it.image || '',
+              principio: it.principio[L] || it.principio.es,
+              cat: catName(c),
+              badgeDisplay: (isNew || isComing) ? 'inline-block' : 'none',
+              badgeLabel: isNew ? (L === 'en' ? 'New' : 'Nuevo') : (isComing ? (L === 'en' ? 'Coming Soon' : 'Próximamente') : ''),
+              badgeBg: isNew ? 'rgba(37,99,235,0.1)' : '#FEF3C7',
+              badgeColor: isNew ? '#2563EB' : '#92400E',
+              bg: '#FAFBFD',
+              border: isSel ? '#E11D48' : 'rgba(11,19,31,0.06)',
+              titleColor: isSel ? '#E11D48' : '#0B131F',
+              arrowColor: isSel ? '#E11D48' : '#8A97A6',
+              select: () => this.setState({ selectedTitle: it.title })
+            };
+          })
+      }))
+      .filter((c) => c.items.length > 0);
+
+    const filterOptions = [{ label: L === 'en' ? 'All categories' : 'Todas las categorías', val: null }]
+      .concat(data.map((c) => ({ label: catName(c), val: c.key })))
+      .map((o) => ({
+        label: o.label,
+        bg: (o.val === category) ? 'rgba(225,29,72,0.06)' : 'transparent',
+        color: (o.val === category) ? '#E11D48' : '#3E4D5E',
+        pick: () => this.setState({ category: o.val, filterOpen: false })
+      }));
+
+    const activeCatName = category ? catName(data.find((c) => c.key === category)) : null;
+
+    const tk = { bg: '#FFFFFF', color: '#0B131F', shadow: '0 1px 2px rgba(11,19,31,0.12)' };
+    const idle = { bg: 'transparent', color: '#8A97A6', shadow: 'none' };
+    const es = L === 'es' ? tk : idle;
+    const en = L === 'en' ? tk : idle;
+
+    return {
+      setEs: () => this.setLang('es'),
+      setEn: () => this.setLang('en'),
+      menuOpen: !!this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      burgerDisplay: this.state.menuOpen ? 'none' : 'block',
+      closeDisplay: this.state.menuOpen ? 'block' : 'none',
+      esBg: es.bg, esColor: es.color, esShadow: es.shadow,
+      enBg: en.bg, enColor: en.color, enShadow: en.shadow,
+      showGate: !confirmed,
+      acceptGate: () => { try { sessionStorage.setItem('isMedicalProfessional', 'true'); } catch (e) {} this.setState({ confirmed: true }); },
+      searchTerm,
+      onSearch: (e) => this.setState({ searchTerm: e.target.value }),
+      toggleFilter: () => this.setState({ filterOpen: !filterOpen }),
+      isFilterOpen: filterOpen,
+      filterLabel: activeCatName || (L === 'en' ? 'Filter' : 'Filtrar'),
+      filterBorder: category ? 'rgba(225,29,72,0.25)' : 'rgba(11,19,31,0.1)',
+      filterBg: category ? 'rgba(225,29,72,0.08)' : '#FAFBFD',
+      filterColor: category ? '#E11D48' : '#3E4D5E',
+      filterOptions,
+      filteredCategories,
+      noResults: filteredCategories.length === 0,
+      noResultsTitle: L === 'en' ? 'No results found' : 'No se encontraron resultados',
+      noResultsBody: L === 'en' ? 'Try other search terms.' : 'Intenta con otros términos de búsqueda.',
+      selected,
+      clearSelected: () => this.setState({ selectedTitle: null })
+    };
+  }
+}
+</script>
+</body>
+</html>

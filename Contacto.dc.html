@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #FAFBFD; -webkit-font-smoothing: antialiased; }
+    a { color: #2563EB; }
+    a:hover { color: #1D4ED8; }
+    @media (max-width: 640px) { [data-media-card] { height: 280px !important; } [data-hero="true"] { padding: 112px 24px 72px 24px !important; } }
+    @media (max-width: 960px) { #main-nav { display: none !important; } #menu-toggle { display: flex !important; } }
+    @media (max-width: 900px) { [data-split-grid] { grid-template-columns: 1fr !important; gap: 48px !important; } }
+    .bf-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+  </style>
+</helmet>
+
+<div style="font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; background: #FAFBFD; color: #3E4D5E; min-width: 320px;" data-screen-label="Contacto">
+
+  <header style="position: sticky; top: 0; z-index: 50; width: 100%; background: rgba(250,251,253,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(11,19,31,0.06);">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="assets/biofactor_logo.png" alt="Biofactor" style="height: 46px; width: auto; display: block;">
+      </a>
+      <nav id="main-nav" style="display: flex; align-items: center; gap: 28px;">
+        <a href="index.html" data-navlink="true" data-en="Home" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Inicio</a>
+        <a href="Nosotros.dc.html" data-navlink="true" data-en="About Us" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Nosotros</a>
+        <a href="Productos.dc.html" data-navlink="true" data-en="Products" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Productos</a>
+        <a href="Farmacovigilancia.dc.html" data-navlink="true" data-en="Pharmacovigilance" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Farmacovigilancia</a>
+        <a href="Licencias.dc.html" data-navlink="true" data-en="Licensing &amp; Business" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Licencias y Negocios</a>
+        <div style="display: flex; align-items: center; background: #F1F5F9; border: 1px solid rgba(11,19,31,0.06); border-radius: 100px; padding: 3px;">
+          <button onClick="{{ setEs }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: {{ esBg }}; color: {{ esColor }}; box-shadow: {{ esShadow }};">ES</button>
+          <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: {{ enBg }}; color: {{ enColor }}; box-shadow: {{ enShadow }};">EN</button>
+        </div>
+        <a href="Contacto.dc.html" data-en="Contact Us" style="background: #E11D48; color: #ffffff; padding: 11px 22px; border-radius: 12px; font-size: 13px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px rgba(11,19,31,0.08); transition: background 0.3s;" style-hover="background: #BE123C;">Contáctanos</a>
+      </nav>
+      <button id="menu-toggle" onClick="{{ toggleMenu }}" aria-label="Menú" style="display: none; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(11,19,31,0.12); border-radius: 12px; background: #FFFFFF; cursor: pointer; color: #0B131F; flex-shrink: 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: {{ burgerDisplay }};"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h16"></path></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: {{ closeDisplay }};"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="position: absolute; top: 80px; left: 0; right: 0; background: #FAFBFD; border-bottom: 1px solid rgba(11,19,31,0.08); box-shadow: 0 32px 48px rgba(11,19,31,0.16); padding: 12px 20px 24px 20px; display: flex; flex-direction: column; gap: 2px; z-index: 60;">
+        <a href="index.html" data-en="Home" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Inicio</a>
+        <a href="Nosotros.dc.html" data-en="About Us" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Nosotros</a>
+        <a href="Productos.dc.html" data-en="Products" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Productos</a>
+        <a href="Farmacovigilancia.dc.html" data-en="Pharmacovigilance" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Farmacovigilancia</a>
+        <a href="Licencias.dc.html" data-en="Licensing &amp; Business" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Licencias y Negocios</a>
+        <div style="height: 1px; background: rgba(11,19,31,0.08); margin: 12px 0;"></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 12px;">
+          <span data-en="Language" style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #8A97A6;">Idioma</span>
+          <div style="display: flex; align-items: center; background: #F1F5F9; border: 1px solid rgba(11,19,31,0.06); border-radius: 100px; padding: 3px;">
+            <button onClick="{{ setEs }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 8px 16px; border-radius: 100px; background: {{ esBg }}; color: {{ esColor }}; box-shadow: {{ esShadow }};">ES</button>
+            <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 8px 16px; border-radius: 100px; background: {{ enBg }}; color: {{ enColor }}; box-shadow: {{ enShadow }};">EN</button>
+          </div>
+        </div>
+        <a href="Contacto.dc.html" data-en="Contact Us" style="display: block; margin-top: 12px; background: #E11D48; color: #ffffff; padding: 15px; border-radius: 12px; font-size: 14px; font-weight: 500; text-decoration: none; text-align: center;">Contáctanos</a>
+      </div>
+    </sc-if>
+  </header>
+
+  <section data-hero="true" style="position: relative; overflow: hidden; padding: 176px 32px 112px 32px; text-align: center; background: #0B1F3A;">
+    <img src="assets/blueprint-grid.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,31,58,0.8) 0%, rgba(11,31,58,0.55) 55%, rgba(11,31,58,0.92) 100%);"></div>
+    <div style="position: relative; max-width: 768px; margin: 0 auto;">
+      <h1 data-reveal="1" data-en="Get in Touch" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: clamp(44px, 6vw, 72px); line-height: 1.1; letter-spacing: -0.03em; color: #FAFBFD; margin: 0 0 32px 0;">Ponte en Contacto</h1>
+      <p data-reveal="2" data-en="We are available for commercial and general inquiries, as well as medical requirements." style="font-size: 19px; line-height: 1.7; color: rgba(250,251,253,0.8); max-width: 620px; margin: 0 auto;">Estamos a disposición para consultas comerciales, generales y requerimientos médicos.</p>
+    </div>
+  </section>
+
+  <section style="max-width: 1280px; margin: 0 auto; padding: 64px 32px 128px 32px; border-top: 1px solid rgba(11,19,31,0.06);">
+    <div data-split-grid style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 96px; align-items: start;">
+
+      <div data-reveal style="max-width: 420px;">
+        <span data-en="Headquarters" style="display: block; color: #2563EB; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; font-size: 12px; margin-bottom: 24px;">Sede Central</span>
+        <h2 data-en="Direct Information" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: clamp(30px, 3.4vw, 42px); letter-spacing: -0.03em; color: #0B131F; margin: 0 0 48px 0;">Información Directa</h2>
+        <div style="display: flex; flex-direction: column; gap: 40px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
+              <div style="width: 40px; height: 40px; background: #F1F5F9; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B131F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <h3 data-en="Address" style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: #8A97A6; margin: 0;">Dirección</h3>
+            </div>
+            <p data-en-html="Estomba 1058,<br>Autonomous City of Buenos Aires,<br>Argentina." style="font-size: 17px; line-height: 1.6; color: #0B131F; margin: 0; padding-left: 54px;">Estomba 1058,<br>Ciudad Autónoma de Buenos Aires,<br>Argentina.</p>
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
+              <div style="width: 40px; height: 40px; background: #F1F5F9; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B131F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <h3 data-en="Phone" style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: #8A97A6; margin: 0;">Teléfono</h3>
+            </div>
+            <p style="font-size: 17px; color: #0B131F; margin: 0; padding-left: 54px;">+54 11 4551 7110</p>
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
+              <div style="width: 40px; height: 40px; background: #F1F5F9; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B131F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              </div>
+              <h3 data-en="Email" style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: #8A97A6; margin: 0;">Correo Electrónico</h3>
+            </div>
+            <p style="font-size: 17px; color: #0B131F; margin: 0; padding-left: 54px;">info@biofactor.com.ar</p>
+          </div>
+        </div>
+        <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(11,19,31,0.06);">
+          <p data-en="Office hours: Monday to Friday, 9:00 to 18:00 (ART)." style="font-size: 13px; color: #3E4D5E; margin: 0;">Horario de atención: Lunes a Viernes, 9:00 a 18:00 hs (ART).</p>
+        </div>
+      </div>
+
+      <div data-reveal style="background: #F1F5F9; padding: 48px; border-radius: 16px; box-shadow: 0 1px 3px rgba(11,19,31,0.06); border: 2px solid {{ formBorder }}; transition: border-color 0.3s;">
+
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align: center; padding: 24px 8px;">
+            <div style="width: 64px; height: 64px; margin: 0 auto 24px auto; background: #DCFCE7; color: #16A34A; border-radius: 100px; display: flex; align-items: center; justify-content: center;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+            </div>
+            <h2 style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 400; font-size: 28px; letter-spacing: -0.02em; color: #0B131F; margin: 0 0 12px 0;">{{ sentTitle }}</h2>
+            <p style="font-size: 15px; line-height: 1.7; color: #3E4D5E; margin: 0 0 32px 0;">{{ sentBody }}</p>
+            <button onClick="{{ reset }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #0B131F; color: #ffffff; border: none; padding: 14px 28px; border-radius: 12px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: inherit; transition: background 0.3s;" style-hover="background: #26303f;">{{ sentAgain }}</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <h2 data-en="Send us a message" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: 30px; letter-spacing: -0.02em; color: #0B131F; margin: 0 0 8px 0;">Envíanos un mensaje</h2>
+            <p data-en="Choose the type of inquiry and our team will get back to you shortly." style="font-size: 15px; line-height: 1.7; color: #3E4D5E; margin: 0 0 32px 0;">Selecciona el tipo de consulta y nuestro equipo te responderá a la brevedad.</p>
+
+            <div style="display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap;">
+              <sc-for list="{{ tabs }}" as="tab" hint-placeholder-count="3">
+                <button onClick="{{ tab.pick }}" style="flex: 1; min-width: 130px; padding: 12px 14px; border-radius: 12px; border: 1px solid {{ tab.border }}; background: {{ tab.bg }}; color: {{ tab.color }}; font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.3s; line-height: 1.3;">{{ tab.label }}</button>
+              </sc-for>
+            </div>
+
+            <sc-if value="{{ isCritical }}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; align-items: flex-start; gap: 12px; background: #FFE4E6; border: 1px solid rgba(225,29,72,0.25); border-radius: 12px; padding: 16px; margin: 16px 0 8px 0;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+                <p style="font-size: 13px; line-height: 1.6; color: #9F1239; margin: 0;">{{ criticalNoticePre }}<a href="Farmacovigilancia.dc.html" style="color: #E11D48; font-weight: 600; text-decoration: none;">{{ criticalNoticeLink }}</a></p>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ errorMsg }}" hint-placeholder-val="{{ false }}">
+              <div style="background: #FEF3C7; border: 1px solid rgba(146,64,14,0.25); border-radius: 12px; padding: 14px 16px; margin: 16px 0 0 0; font-size: 13px; line-height: 1.6; color: #92400E;">{{ errorMsg }}</div>
+            </sc-if>
+
+            <form onSubmit="{{ onSubmit }}" style="display: flex; flex-direction: column; gap: 24px; margin-top: 24px;">
+              <input type="text" tabindex="-1" autocomplete="off" value="{{ hp }}" onChange="{{ setHp }}" class="bf-hp" aria-hidden="true">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <label data-en="First name" style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #0B131F;">Nombre</label>
+                  <input type="text" value="{{ f.nombre }}" onChange="{{ set.nombre }}" data-en-ph="e.g. John" placeholder="Ej. Juan" style="width: 100%; box-sizing: border-box; padding: 13px 16px; border-radius: 12px; background: #FAFBFD; border: 1px solid rgba(11,19,31,0.1); outline: none; font-size: 15px; color: #0B131F; font-family: inherit; box-shadow: 0 1px 2px rgba(11,19,31,0.04); transition: border-color 0.3s;" style-focus="border-color: {{ focusColor }};">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <label data-en="Last name" style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #0B131F;">Apellido</label>
+                  <input type="text" value="{{ f.apellido }}" onChange="{{ set.apellido }}" data-en-ph="e.g. Smith" placeholder="Ej. Pérez" style="width: 100%; box-sizing: border-box; padding: 13px 16px; border-radius: 12px; background: #FAFBFD; border: 1px solid rgba(11,19,31,0.1); outline: none; font-size: 15px; color: #0B131F; font-family: inherit; box-shadow: 0 1px 2px rgba(11,19,31,0.04); transition: border-color 0.3s;" style-focus="border-color: {{ focusColor }};">
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <label data-en="Email" style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #0B131F;">Correo Electrónico</label>
+                <input type="email" value="{{ f.email }}" onChange="{{ set.email }}" placeholder="juan.perez@email.com" style="width: 100%; box-sizing: border-box; padding: 13px 16px; border-radius: 12px; background: #FAFBFD; border: 1px solid rgba(11,19,31,0.1); outline: none; font-size: 15px; color: #0B131F; font-family: inherit; box-shadow: 0 1px 2px rgba(11,19,31,0.04); transition: border-color 0.3s;" style-focus="border-color: {{ focusColor }};">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <label data-en="Message / Inquiry" style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #0B131F;">Mensaje / Consulta</label>
+                <textarea rows="6" value="{{ f.mensaje }}" onChange="{{ set.mensaje }}" data-en-ph="How can we help you?" placeholder="¿En qué podemos ayudarte?" style="width: 100%; box-sizing: border-box; padding: 13px 16px; border-radius: 12px; background: #FAFBFD; border: 1px solid rgba(11,19,31,0.1); outline: none; font-size: 15px; color: #0B131F; font-family: inherit; resize: none; line-height: 1.7; box-shadow: 0 1px 2px rgba(11,19,31,0.04); transition: border-color 0.3s;" style-focus="border-color: {{ focusColor }};"></textarea>
+              </div>
+              <button type="submit" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; background: {{ submitBg }}; color: #ffffff; border: none; padding: 16px; border-radius: 12px; font-size: 14px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 24px {{ submitShadow }}; font-family: inherit; transition: background 0.3s; margin-top: 8px;">
+                <span data-en="Send Message">Enviar Mensaje</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
+              </button>
+            </form>
+          </div>
+        </sc-if>
+      </div>
+
+    </div>
+  </section>
+
+  <footer style="background: #0B1F3A; border-top: 1px solid rgba(250,251,253,0.08); padding: 96px 0 32px 0;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 64px; margin-bottom: 64px;">
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <img src="assets/biofactor_logo.png" alt="Biofactor" style="height: 40px; width: auto; filter: brightness(0) invert(1); opacity: 0.92; align-self: flex-start;">
+          <p data-en="Improving quality of life through responsible, ethical pharmaceutical innovation." style="max-width: 300px; font-size: 13px; line-height: 1.7; color: rgba(250,251,253,0.68); margin: 0;">Mejorando la calidad de vida a través de innovación farmacéutica responsable y ética.</p>
+        </div>
+        <div>
+          <h3 data-en="Contact" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 500; color: #FAFBFD; font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; margin: 0 0 24px 0;">Contacto</h3>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <span data-en-html="Estomba 1058, C1427COX,<br>Autonomous City of Buenos Aires, Argentina." style="font-size: 13px; line-height: 1.7; color: rgba(250,251,253,0.72);">Estomba 1058, C1427COX,<br>Cdad. Aut. de Buenos Aires, Argentina.</span>
+            <span style="font-size: 13px; color: rgba(250,251,253,0.72);">+54 11 4551 7110</span>
+            <span style="font-size: 13px; color: rgba(250,251,253,0.72);">info@biofactor.com.ar</span>
+          </div>
+        </div>
+        <div>
+          <h3 data-en="Navigation" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 500; color: #FAFBFD; font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; margin: 0 0 24px 0;">Navegación</h3>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <a href="index.html" data-en="Home" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Inicio</a>
+            <a href="Nosotros.dc.html" data-en="About Us" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Nosotros</a>
+            <a href="Productos.dc.html" data-en="Products" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Productos</a>
+            <a href="Farmacovigilancia.dc.html" data-en="Pharmacovigilance" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Farmacovigilancia</a>
+            <a href="Licencias.dc.html" data-en="Licensing &amp; Business" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Licencias y Negocios</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius: 16px; overflow: hidden; border: 1px solid rgba(250,251,253,0.14); height: 300px; margin-bottom: 32px; background: #0E2642;">
+        <iframe title="Biofactor — Estomba 1058, Ciudad Autónoma de Buenos Aires" src="https://maps.google.com/maps?q=Estomba%201058%2C%20Ciudad%20Aut%C3%B3noma%20de%20Buenos%20Aires%2C%20Argentina&amp;z=16&amp;output=embed" style="display: block; width: 100%; height: 100%; border: 0;" loading="lazy"></iframe>
+      </div>
+      <div data-en="BIOFACTOR notes that the Internet is a global medium and the pharmaceutical industry is subject to country-specific regulations. This information is intended exclusively for healthcare professionals." style="background: rgba(250,251,253,0.06); color: rgba(250,251,253,0.6); font-size: 12px; line-height: 1.6; padding: 16px 24px; text-align: center; font-weight: 500; border: 1px solid rgba(250,251,253,0.1); border-radius: 8px; margin-bottom: 32px;">BIOFACTOR establece que Internet es un medio global y la industria farmacéutica está sujeta a regulaciones por país. La información es exclusivamente para profesionales de la salud.</div>
+      <div style="border-top: 1px solid rgba(250,251,253,0.1); padding-top: 32px; font-size: 12px; color: rgba(250,251,253,0.5);">
+        <p data-en="Biofactor SA © 2026. All rights reserved." style="margin: 0;">Biofactor SA © 2026. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lang: 'es', inquiry: 'licencias', sent: false, errorKey: null, hp: '',
+      f: { nombre: '', apellido: '', email: '', mensaje: '' }
+    };
+    this._cleanup = [];
+  }
+
+  componentDidMount() {
+    let stored = 'es';
+    try { stored = localStorage.getItem('bf_lang') || 'es'; } catch (e) {}
+    this.applyLang(stored);
+    if (stored !== this.state.lang) this.setState({ lang: stored });
+    this.setupReveal();
+  }
+
+  componentDidUpdate() { this.applyLang(this.state.lang); }
+  componentWillUnmount() { this._cleanup.forEach((fn) => fn()); }
+
+  applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach((el) => {
+      if (!el.hasAttribute('data-es')) el.setAttribute('data-es', el.textContent);
+      el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-es');
+    });
+    document.querySelectorAll('[data-en-html]').forEach((el) => {
+      if (!el.hasAttribute('data-es-html')) el.setAttribute('data-es-html', el.innerHTML);
+      el.innerHTML = lang === 'en' ? el.getAttribute('data-en-html') : el.getAttribute('data-es-html');
+    });
+    document.querySelectorAll('[data-en-ph]').forEach((el) => {
+      if (!el.hasAttribute('data-es-ph')) el.setAttribute('data-es-ph', el.getAttribute('placeholder') || '');
+      el.setAttribute('placeholder', lang === 'en' ? el.getAttribute('data-en-ph') : el.getAttribute('data-es-ph'));
+    });
+    try { document.documentElement.lang = lang; } catch (e) {}
+  }
+
+  setLang(lang) {
+    try { localStorage.setItem('bf_lang', lang); } catch (e) {}
+    this.setState({ lang: lang });
+  }
+
+  setupReveal() {
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    els.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)';
+    });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const idx = parseInt(el.getAttribute('data-reveal') || '0', 10) || 0;
+          el.style.transitionDelay = (idx * 0.12) + 's';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          io.unobserve(el);
+        }
+      });
+    }, { rootMargin: '-80px' });
+    els.forEach((el) => io.observe(el));
+    this._cleanup.push(() => io.disconnect());
+  }
+
+  setField(key) {
+    return (e) => this.setState((s) => ({ f: Object.assign({}, s.f, { [key]: e.target.value }) }));
+  }
+
+  // Límite anti-spam: máx. 3 envíos por hora, registrado localmente.
+  rateInfo() {
+    const now = Date.now();
+    let arr = [];
+    try { arr = JSON.parse(localStorage.getItem('bf_contact_ts') || '[]'); } catch (e) { arr = []; }
+    arr = arr.filter((t) => now - t < 3600000);
+    return { arr, blocked: arr.length >= 3 };
+  }
+
+  recordSend() {
+    const { arr } = this.rateInfo();
+    arr.push(Date.now());
+    try { localStorage.setItem('bf_contact_ts', JSON.stringify(arr)); } catch (e) {}
+  }
+
+  renderVals() {
+    const L = this.state.lang;
+    const { inquiry, sent, errorKey, f } = this.state;
+    const isCritical = inquiry === 'criticos';
+    const activeColor = isCritical ? '#E11D48' : '#2563EB';
+
+    const defs = [
+      { id: 'licencias', label: { es: 'Inscripción de Licencias', en: 'Licensing Enrollment' } },
+      { id: 'medicas', label: { es: 'Consultas Médicas', en: 'Medical Inquiries' } },
+      { id: 'criticos', label: { es: 'Reportes Críticos', en: 'Critical Reports' } }
+    ];
+    const tabs = defs.map((d) => {
+      const active = d.id === inquiry;
+      const c = d.id === 'criticos' ? '#E11D48' : '#2563EB';
+      return {
+        label: d.label[L] || d.label.es,
+        bg: active ? c : '#FAFBFD',
+        color: active ? '#ffffff' : '#3E4D5E',
+        border: active ? c : 'rgba(11,19,31,0.1)',
+        pick: () => this.setState({ inquiry: d.id })
+      };
+    });
+
+    const set = {};
+    ['nombre', 'apellido', 'email', 'mensaje'].forEach((k) => { set[k] = this.setField(k); });
+
+    const errors = {
+      required: { es: 'Por favor completá todos los campos antes de enviar.', en: 'Please fill in all fields before sending.' },
+      email: { es: 'Ingresá un correo electrónico válido.', en: 'Please enter a valid email address.' },
+      rate: { es: 'Alcanzaste el límite de envíos por hora. Probá nuevamente más tarde.', en: 'You have reached the hourly submission limit. Please try again later.' }
+    };
+
+    const tk = { bg: '#FFFFFF', color: '#0B131F', shadow: '0 1px 2px rgba(11,19,31,0.12)' };
+    const idle = { bg: 'transparent', color: '#8A97A6', shadow: 'none' };
+    const es = L === 'es' ? tk : idle;
+    const en = L === 'en' ? tk : idle;
+
+    return {
+      setEs: () => this.setLang('es'),
+      setEn: () => this.setLang('en'),
+      menuOpen: !!this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      burgerDisplay: this.state.menuOpen ? 'none' : 'block',
+      closeDisplay: this.state.menuOpen ? 'block' : 'none',
+      esBg: es.bg, esColor: es.color, esShadow: es.shadow,
+      enBg: en.bg, enColor: en.color, enShadow: en.shadow,
+
+      tabs,
+      isCritical,
+      showForm: !sent,
+      sent,
+      sentTitle: L === 'en' ? 'Message sent' : 'Mensaje enviado',
+      sentBody: L === 'en'
+        ? 'Thank you for reaching out. Our team will review your message and get back to you shortly.'
+        : 'Gracias por escribirnos. Nuestro equipo revisará tu mensaje y te responderá a la brevedad.',
+      sentAgain: L === 'en' ? 'Send another message' : 'Enviar otro mensaje',
+      reset: () => this.setState({ sent: false, errorKey: null, hp: '', f: { nombre: '', apellido: '', email: '', mensaje: '' } }),
+
+      criticalNoticePre: L === 'en'
+        ? 'For adverse events or critical safety reports, please use our urgent Pharmacovigilance channel. '
+        : 'Para eventos adversos o reportes críticos de seguridad, utilizá nuestro canal urgente de Farmacovigilancia. ',
+      criticalNoticeLink: L === 'en' ? 'Go to the official form →' : 'Ir al formulario oficial →',
+
+      errorMsg: errorKey ? (errors[errorKey][L] || errors[errorKey].es) : null,
+
+      formBorder: isCritical ? 'rgba(225,29,72,0.4)' : 'transparent',
+      focusColor: activeColor,
+      submitBg: activeColor,
+      submitShadow: isCritical ? 'rgba(225,29,72,0.3)' : 'rgba(37,99,235,0.3)',
+
+      hp: this.state.hp,
+      setHp: (e) => this.setState({ hp: e.target.value }),
+      f, set,
+
+      onSubmit: (e) => {
+        e.preventDefault();
+        // Honeypot: si un bot rellena el campo oculto, se descarta en silencio.
+        if (this.state.hp && this.state.hp.trim() !== '') { this.setState({ sent: true }); return; }
+        const nombre = f.nombre.trim(), apellido = f.apellido.trim(), email = f.email.trim(), mensaje = f.mensaje.trim();
+        if (!nombre || !apellido || !email || !mensaje) { this.setState({ errorKey: 'required' }); return; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { this.setState({ errorKey: 'email' }); return; }
+        if (this.rateInfo().blocked) { this.setState({ errorKey: 'rate' }); return; }
+        this.recordSend();
+        this.setState({ sent: true, errorKey: null });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
