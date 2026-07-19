@@ -55,17 +55,17 @@
       </a>
       <nav id="main-nav" style="display: flex; align-items: center; gap: 28px;">
         <a href="index.html" data-navlink="true" data-en="Home" style="font-size: 13px; font-weight: 600; color: #0B131F; text-decoration: none; letter-spacing: 0.01em;">Inicio</a>
-        <a href="Nosotros.dc.html" data-navlink="true" data-en="About Us" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Nosotros</a>
-        <a href="Productos.dc.html" data-navlink="true" data-en="Products" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Productos</a>
-        <a href="Farmacovigilancia.dc.html" data-navlink="true" data-en="Pharmacovigilance" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Farmacovigilancia</a>
-        <a href="Licencias.dc.html" data-navlink="true" data-en="Licensing &amp; Business" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Licencias y Negocios</a>
+        <a href="nosotros.html" data-navlink="true" data-en="About Us" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Nosotros</a>
+        <a href="productos.html" data-navlink="true" data-en="Products" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Productos</a>
+        <a href="farmacovigilancia.html" data-navlink="true" data-en="Pharmacovigilance" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Farmacovigilancia</a>
+        <a href="licencias.html" data-navlink="true" data-en="Licensing &amp; Business" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Licencias y Negocios</a>
         <div style="display: flex; align-items: center; background: #F1F5F9; border: 1px solid rgba(11,19,31,0.06); border-radius: 100px; padding: 3px;">
           <button onClick="{{ setEs }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: {{ esBg }}; color: {{ esColor }}; box-shadow: {{ esShadow }};">ES</button>
           <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: {{ enBg }}; color: {{ enColor }}; box-shadow: {{ enShadow }};">EN</button>
         </div>
-        <a href="Contacto.dc.html" data-en="Contact" style="background: #E11D48; color: #ffffff; padding: 11px 22px; border-radius: 12px; font-size: 13px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px rgba(11,19,31,0.08); transition: background 0.3s;" style-hover="background: #BE123C;">Contacto</a>
+        <a href="contacto.html" data-en="Contact" style="background: #E11D48; color: #ffffff; padding: 11px 22px; border-radius: 12px; font-size: 13px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px rgba(11,19,31,0.08); transition: background 0.3s;" style-hover="background: #BE123C;">Contacto</a>
       </nav>
-      <a href="Contacto.dc.html" id="mobile-contact" data-en="Contact" style="display: none; align-items: center; background: #E11D48; color: #ffffff; padding: 12px 20px; border-radius: 12px; font-size: 13px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px rgba(11,19,31,0.08); flex-shrink: 0; margin-left: auto;">Contacto</a>
+      <a href="contacto.html" id="mobile-contact" data-en="Contact" style="display: none; align-items: center; background: #E11D48; color: #ffffff; padding: 12px 20px; border-radius: 12px; font-size: 13px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px rgba(11,19,31,0.08); flex-shrink: 0; margin-left: auto;">Contacto</a>
       <button id="menu-toggle" onClick="{{ toggleMenu }}" aria-label="Menú" style="display: none; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(11,19,31,0.12); border-radius: 12px; background: #FFFFFF; cursor: pointer; color: #0B131F; flex-shrink: 0;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: {{ burgerDisplay }};"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h16"></path></svg>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: {{ closeDisplay }};"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
@@ -74,10 +74,10 @@
     <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
       <div style="position: absolute; top: 80px; left: 0; right: 0; background: #FAFBFD; border-bottom: 1px solid rgba(11,19,31,0.08); box-shadow: 0 32px 48px rgba(11,19,31,0.16); padding: 12px 20px 24px 20px; display: flex; flex-direction: column; gap: 2px; z-index: 60;">
         <a href="index.html" data-en="Home" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Inicio</a>
-        <a href="Nosotros.dc.html" data-en="About Us" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Nosotros</a>
-        <a href="Productos.dc.html" data-en="Products" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Productos</a>
-        <a href="Farmacovigilancia.dc.html" data-en="Pharmacovigilance" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Farmacovigilancia</a>
-        <a href="Licencias.dc.html" data-en="Licensing &amp; Business" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Licencias y Negocios</a>
+        <a href="nosotros.html" data-en="About Us" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Nosotros</a>
+        <a href="productos.html" data-en="Products" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Productos</a>
+        <a href="farmacovigilancia.html" data-en="Pharmacovigilance" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Farmacovigilancia</a>
+        <a href="licencias.html" data-en="Licensing &amp; Business" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Licencias y Negocios</a>
         <div style="height: 1px; background: rgba(11,19,31,0.08); margin: 12px 0;"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 12px;">
           <span data-en="Language" style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #8A97A6;">Idioma</span>
@@ -86,7 +86,7 @@
             <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 8px 16px; border-radius: 100px; background: {{ enBg }}; color: {{ enColor }}; box-shadow: {{ enShadow }};">EN</button>
           </div>
         </div>
-        <a href="Contacto.dc.html" data-en="Contact" style="display: block; margin-top: 12px; background: #E11D48; color: #ffffff; padding: 15px; border-radius: 12px; font-size: 14px; font-weight: 500; text-decoration: none; text-align: center;">Contacto</a>
+        <a href="contacto.html" data-en="Contact" style="display: block; margin-top: 12px; background: #E11D48; color: #ffffff; padding: 15px; border-radius: 12px; font-size: 14px; font-weight: 500; text-decoration: none; text-align: center;">Contacto</a>
       </div>
     </sc-if>
   </header>
@@ -99,8 +99,8 @@
       <h1 data-reveal="1" data-en-html="World-class<br>pharmaceutical specialties" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: clamp(44px, 6.2vw, 76px); line-height: 1.08; letter-spacing: -0.03em; color: #FAFBFD; margin: 0 0 32px 0;">Especialidades farmacéuticas<br>de clase mundial</h1>
       <p data-reveal="2" data-en="We connect health institutions with the most advanced therapies and medical devices, ensuring safe, ethical access to high-complexity treatments." style="font-size: 19px; line-height: 1.7; color: rgba(250,251,253,0.75); max-width: 640px; margin: 0 auto 48px auto;">Conectamos a las instituciones de salud con las terapias y dispositivos médicos más avanzados, garantizando un acceso seguro y ético a tratamientos de alta complejidad.</p>
       <div data-reveal="3" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="Productos.dc.html" data-en="View Catalog" style="display: inline-flex; align-items: center; gap: 10px; background: #E11D48; color: #ffffff; padding: 16px 34px; border-radius: 12px; font-size: 14px; font-weight: 500; text-decoration: none; box-shadow: 0 8px 24px rgba(225,29,72,0.35); transition: background 0.3s, transform 0.3s;" style-hover="background: #BE123C; transform: translateY(-2px);">Ver Catálogo</a>
-        <a href="Contacto.dc.html" data-en="Contact" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(250,251,253,0.08); border: 1px solid rgba(250,251,253,0.25); color: #FAFBFD; padding: 16px 34px; border-radius: 12px; font-size: 14px; font-weight: 500; text-decoration: none; backdrop-filter: blur(8px); transition: background 0.3s;" style-hover="background: rgba(250,251,253,0.16);">Contacto</a>
+        <a href="productos.html" data-en="View Catalog" style="display: inline-flex; align-items: center; gap: 10px; background: #E11D48; color: #ffffff; padding: 16px 34px; border-radius: 12px; font-size: 14px; font-weight: 500; text-decoration: none; box-shadow: 0 8px 24px rgba(225,29,72,0.35); transition: background 0.3s, transform 0.3s;" style-hover="background: #BE123C; transform: translateY(-2px);">Ver Catálogo</a>
+        <a href="contacto.html" data-en="Contact" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(250,251,253,0.08); border: 1px solid rgba(250,251,253,0.25); color: #FAFBFD; padding: 16px 34px; border-radius: 12px; font-size: 14px; font-weight: 500; text-decoration: none; backdrop-filter: blur(8px); transition: background 0.3s;" style-hover="background: rgba(250,251,253,0.16);">Contacto</a>
       </div>
     </div>
   </section>
@@ -116,7 +116,7 @@
         <h2 data-en="Pharmaceutical innovation in service of health" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -0.03em; color: #0B131F; margin: 0 0 32px 0;">Innovación farmacéutica al servicio de la salud</h2>
         <p data-en="With over two decades of experience, Biofactor is a regional reference in the commercialization of high-quality medicinal specialties. Our focus is on access to high-cost treatments and medication for critical emergencies." style="font-size: 15px; line-height: 1.7; color: #3E4D5E; margin: 0 0 24px 0;">Con más de dos décadas de trayectoria, Biofactor es un referente regional en la comercialización de especialidades medicinales de alta calidad. Nuestro enfoque se centra en el acceso a tratamientos de alto costo y medicación para emergencias críticas.</p>
         <p data-en="We keep expanding our reach through strategic alliances with global licensors who trust our operational capacity and professional ethics." style="font-size: 15px; line-height: 1.7; color: #3E4D5E; margin: 0 0 24px 0;">Actualmente, seguimos expandiendo nuestras fronteras gracias a alianzas estratégicas con licenciatarios globales que confían en nuestra capacidad operativa y ética profesional.</p>
-        <a href="Nosotros.dc.html" data-arrowlink="true" data-en="Our Story" style="display: inline-flex; align-items: center; gap: 8px; color: #2563EB; font-size: 13px; font-weight: 500; text-decoration: none; margin-top: 16px;" style-hover="color: #1D4ED8;">Nuestra Historia</a>
+        <a href="nosotros.html" data-arrowlink="true" data-en="Our Story" style="display: inline-flex; align-items: center; gap: 8px; color: #2563EB; font-size: 13px; font-weight: 500; text-decoration: none; margin-top: 16px;" style-hover="color: #1D4ED8;">Nuestra Historia</a>
       </div>
     </div>
   </section>
@@ -139,7 +139,7 @@
           <div style="position: relative; max-width: 380px;">
             <h3 data-en="Pharmaceutical Specialties" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 500; font-size: 40px; letter-spacing: -0.02em; color: #0B131F; margin: 0 0 24px 0;">Especialidades Farmacéuticas</h3>
             <p data-en="High-impact medicines for complex medical specialties such as Hematology, Cardiology and Intensive Care." style="font-size: 15px; line-height: 1.7; color: #3E4D5E; margin: 0 0 32px 0;">Medicamentos de alto impacto para especialidades médicas complejas como Hematología, Cardiología y Terapia Intensiva.</p>
-            <a href="Productos.dc.html" data-arrowlink="true" data-en="View Catalog" style="display: inline-flex; align-items: center; gap: 8px; color: #0B131F; font-size: 13px; font-weight: 500; text-decoration: none;" style-hover="color: #2563EB;">Ver Catálogo</a>
+            <a href="productos.html" data-arrowlink="true" data-en="View Catalog" style="display: inline-flex; align-items: center; gap: 8px; color: #0B131F; font-size: 13px; font-weight: 500; text-decoration: none;" style-hover="color: #2563EB;">Ver Catálogo</a>
           </div>
         </div>
 
@@ -151,7 +151,7 @@
           <div style="position: relative; display: flex; flex-direction: column; height: 100%; justify-content: flex-end; min-height: 320px;">
             <h3 data-en="Medical Devices" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 500; font-size: 40px; letter-spacing: -0.02em; color: #FAFBFD; margin: 0 0 24px 0;">Dispositivos Médicos</h3>
             <p data-en="Advanced equipment and solutions for healthcare professionals and medical institutions." style="font-size: 15px; line-height: 1.7; color: rgba(250,251,253,0.7); margin: 0 0 32px 0;">Equipamiento y soluciones avanzadas para profesionales de la salud e instituciones médicas.</p>
-            <a href="Productos.dc.html" data-arrowlink="true" data-en="View Catalog" style="display: inline-flex; align-items: center; gap: 8px; color: #FAFBFD; font-size: 13px; font-weight: 500; text-decoration: none;" style-hover="color: #93B4F5;">Ver Catálogo</a>
+            <a href="productos.html" data-arrowlink="true" data-en="View Catalog" style="display: inline-flex; align-items: center; gap: 8px; color: #FAFBFD; font-size: 13px; font-weight: 500; text-decoration: none;" style-hover="color: #93B4F5;">Ver Catálogo</a>
           </div>
         </div>
 
@@ -159,7 +159,7 @@
           <div style="max-width: 720px;">
             <h3 data-en="Pharmacovigilance &amp; Compliance" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: clamp(40px, 4vw, 56px); letter-spacing: -0.03em; color: #0B131F; margin: 0 0 24px 0;">Farmacovigilancia y Compliance</h3>
             <p data-en="Quality in every process, integrity in every relationship. At Biofactor we operate under strict Compliance and transparency policies, strengthening the trust of our strategic partners and backing the value of each medicinal specialty we make available to society." style="font-size: 15px; line-height: 1.7; color: #3E4D5E; margin: 0 0 40px 0;">Calidad en los procesos, integridad en las relaciones. En Biofactor actuamos bajo estrictas políticas de Compliance y transparencia, lo que consolida la confianza de nuestros socios estratégicos y respalda el valor de cada especialidad medicinal que ponemos a disposición de la sociedad.</p>
-            <a href="Farmacovigilancia.dc.html" data-en="Read our Pharmacovigilance policy" style="display: inline-flex; align-items: center; gap: 10px; background: #FAFBFD; border: 1px solid rgba(11,19,31,0.1); color: #0B131F; padding: 13px 28px; border-radius: 12px; font-size: 13px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px rgba(11,19,31,0.05); transition: border-color 0.3s, color 0.3s;" style-hover="border-color: #2563EB; color: #2563EB;">Leer política de Farmacovigilancia</a>
+            <a href="farmacovigilancia.html" data-en="Read our Pharmacovigilance policy" style="display: inline-flex; align-items: center; gap: 10px; background: #FAFBFD; border: 1px solid rgba(11,19,31,0.1); color: #0B131F; padding: 13px 28px; border-radius: 12px; font-size: 13px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px rgba(11,19,31,0.05); transition: border-color 0.3s, color 0.3s;" style-hover="border-color: #2563EB; color: #2563EB;">Leer política de Farmacovigilancia</a>
           </div>
         </div>
 
@@ -174,7 +174,7 @@
         <span data-en="Expansion" style="display: block; color: #6D9BF2; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; font-size: 12px; margin-bottom: 24px;">Expansión</span>
         <h2 data-en="Representation of excellence." style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -0.03em; color: #FAFBFD; margin: 0 0 32px 0;">Representación de excelencia.</h2>
         <p data-en="We aim to expand our borders by representing international pharmaceutical companies that wish to introduce their cutting-edge solutions to the region with an ethical, reliable partner." style="font-size: 15px; line-height: 1.7; color: rgba(250,251,253,0.65); margin: 0 0 32px 0; max-width: 520px;">Buscamos expandir nuestras fronteras representando a compañías farmacéuticas internacionales que deseen introducir sus soluciones de vanguardia en la región con un socio ético y confiable.</p>
-        <a href="Licencias.dc.html" data-arrowlink="true" data-en="Licensing &amp; Business" style="display: inline-flex; align-items: center; gap: 8px; color: #6D9BF2; font-size: 13px; font-weight: 500; text-decoration: none;" style-hover="color: #93B4F5;">Licencias y Negocios</a>
+        <a href="licencias.html" data-arrowlink="true" data-en="Licensing &amp; Business" style="display: inline-flex; align-items: center; gap: 8px; color: #6D9BF2; font-size: 13px; font-weight: 500; text-decoration: none;" style-hover="color: #93B4F5;">Licencias y Negocios</a>
       </div>
       <div data-reveal data-media-card="true" style="position: relative; height: 460px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(250,251,253,0.1);">
         <img src="assets/Logistics.jpg" alt="Alianzas estratégicas" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
@@ -206,10 +206,10 @@
           <h3 data-en="Navigation" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 500; color: #FAFBFD; font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; margin: 0 0 24px 0;">Navegación</h3>
           <div style="display: flex; flex-direction: column; gap: 16px;">
             <a href="index.html" data-en="Home" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Inicio</a>
-            <a href="Nosotros.dc.html" data-en="About Us" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Nosotros</a>
-            <a href="Productos.dc.html" data-en="Products" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Productos</a>
-            <a href="Farmacovigilancia.dc.html" data-en="Pharmacovigilance" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Farmacovigilancia</a>
-            <a href="Licencias.dc.html" data-en="Licensing &amp; Business" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Licencias y Negocios</a>
+            <a href="nosotros.html" data-en="About Us" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Nosotros</a>
+            <a href="productos.html" data-en="Products" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Productos</a>
+            <a href="farmacovigilancia.html" data-en="Pharmacovigilance" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Farmacovigilancia</a>
+            <a href="licencias.html" data-en="Licensing &amp; Business" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Licencias y Negocios</a>
           </div>
         </div>
       </div>
@@ -217,8 +217,9 @@
         <iframe title="Biofactor — Estomba 1058, Ciudad Autónoma de Buenos Aires" src="https://maps.google.com/maps?q=Estomba%201058%2C%20Ciudad%20Aut%C3%B3noma%20de%20Buenos%20Aires%2C%20Argentina&amp;z=16&amp;output=embed" style="display: block; width: 100%; height: 100%; border: 0;" loading="lazy"></iframe>
       </div>
       <div data-en="BIOFACTOR notes that the Internet is a global medium and the pharmaceutical industry is subject to country-specific regulations. This information is intended exclusively for healthcare professionals." style="background: rgba(250,251,253,0.06); color: rgba(250,251,253,0.6); font-size: 12px; line-height: 1.6; padding: 16px 24px; text-align: center; font-weight: 500; border: 1px solid rgba(250,251,253,0.1); border-radius: 8px; margin-bottom: 32px;">BIOFACTOR establece que Internet es un medio global y la industria farmacéutica está sujeta a regulaciones por país. La información es exclusivamente para profesionales de la salud.</div>
-      <div style="border-top: 1px solid rgba(250,251,253,0.1); padding-top: 32px; font-size: 12px; color: rgba(250,251,253,0.5);">
+      <div style="border-top: 1px solid rgba(250,251,253,0.1); padding-top: 32px; font-size: 12px; color: rgba(250,251,253,0.5); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
         <p data-en="Biofactor SA © 2026. All rights reserved." style="margin: 0;">Biofactor SA © 2026. Todos los derechos reservados.</p>
+        <a href="privacidad.html" data-en="Privacy Policy" style="color: rgba(250,251,253,0.5); text-decoration: none;">Políticas de Privacidad</a>
       </div>
     </div>
   </footer>

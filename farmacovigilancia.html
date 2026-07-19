@@ -32,15 +32,15 @@
       </a>
       <nav id="main-nav" style="display: flex; align-items: center; gap: 28px;">
         <a href="index.html" data-navlink="true" data-en="Home" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Inicio</a>
-        <a href="Nosotros.dc.html" data-navlink="true" data-en="About Us" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Nosotros</a>
-        <a href="Productos.dc.html" data-navlink="true" data-en="Products" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Productos</a>
-        <a href="Farmacovigilancia.dc.html" data-navlink="true" data-en="Pharmacovigilance" style="font-size: 13px; font-weight: 600; color: #0B131F; text-decoration: none; letter-spacing: 0.01em;">Farmacovigilancia</a>
-        <a href="Licencias.dc.html" data-navlink="true" data-en="Licensing &amp; Business" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Licencias y Negocios</a>
+        <a href="nosotros.html" data-navlink="true" data-en="About Us" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Nosotros</a>
+        <a href="productos.html" data-navlink="true" data-en="Products" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Productos</a>
+        <a href="farmacovigilancia.html" data-navlink="true" data-en="Pharmacovigilance" style="font-size: 13px; font-weight: 600; color: #0B131F; text-decoration: none; letter-spacing: 0.01em;">Farmacovigilancia</a>
+        <a href="licencias.html" data-navlink="true" data-en="Licensing &amp; Business" style="font-size: 13px; font-weight: 500; color: #8A97A6; text-decoration: none;" style-hover="color: #0B131F;">Licencias y Negocios</a>
         <div style="display: flex; align-items: center; background: #F1F5F9; border: 1px solid rgba(11,19,31,0.06); border-radius: 100px; padding: 3px;">
           <button onClick="{{ setEs }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: {{ esBg }}; color: {{ esColor }}; box-shadow: {{ esShadow }};">ES</button>
           <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: {{ enBg }}; color: {{ enColor }}; box-shadow: {{ enShadow }};">EN</button>
         </div>
-        <a href="Contacto.dc.html" data-en="Contact Us" style="background: #E11D48; color: #ffffff; padding: 11px 22px; border-radius: 12px; font-size: 13px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px rgba(11,19,31,0.08); transition: background 0.3s;" style-hover="background: #BE123C;">Contáctanos</a>
+        <a href="contacto.html" data-en="Contact Us" style="background: #E11D48; color: #ffffff; padding: 11px 22px; border-radius: 12px; font-size: 13px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px rgba(11,19,31,0.08); transition: background 0.3s;" style-hover="background: #BE123C;">Contáctanos</a>
       </nav>
       <button id="menu-toggle" onClick="{{ toggleMenu }}" aria-label="Menú" style="display: none; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(11,19,31,0.12); border-radius: 12px; background: #FFFFFF; cursor: pointer; color: #0B131F; flex-shrink: 0;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: {{ burgerDisplay }};"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h16"></path></svg>
@@ -50,10 +50,10 @@
     <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
       <div style="position: absolute; top: 80px; left: 0; right: 0; background: #FAFBFD; border-bottom: 1px solid rgba(11,19,31,0.08); box-shadow: 0 32px 48px rgba(11,19,31,0.16); padding: 12px 20px 24px 20px; display: flex; flex-direction: column; gap: 2px; z-index: 60;">
         <a href="index.html" data-en="Home" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Inicio</a>
-        <a href="Nosotros.dc.html" data-en="About Us" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Nosotros</a>
-        <a href="Productos.dc.html" data-en="Products" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Productos</a>
-        <a href="Farmacovigilancia.dc.html" data-en="Pharmacovigilance" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Farmacovigilancia</a>
-        <a href="Licencias.dc.html" data-en="Licensing &amp; Business" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Licencias y Negocios</a>
+        <a href="nosotros.html" data-en="About Us" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Nosotros</a>
+        <a href="productos.html" data-en="Products" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Productos</a>
+        <a href="farmacovigilancia.html" data-en="Pharmacovigilance" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Farmacovigilancia</a>
+        <a href="licencias.html" data-en="Licensing &amp; Business" style="display: block; padding: 14px 12px; font-size: 15px; font-weight: 500; color: #0B131F; text-decoration: none; border-radius: 10px;" style-hover="background: #F1F5F9;">Licencias y Negocios</a>
         <div style="height: 1px; background: rgba(11,19,31,0.08); margin: 12px 0;"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 12px;">
           <span data-en="Language" style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #8A97A6;">Idioma</span>
@@ -62,7 +62,7 @@
             <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 8px 16px; border-radius: 100px; background: {{ enBg }}; color: {{ enColor }}; box-shadow: {{ enShadow }};">EN</button>
           </div>
         </div>
-        <a href="Contacto.dc.html" data-en="Contact Us" style="display: block; margin-top: 12px; background: #E11D48; color: #ffffff; padding: 15px; border-radius: 12px; font-size: 14px; font-weight: 500; text-decoration: none; text-align: center;">Contáctanos</a>
+        <a href="contacto.html" data-en="Contact Us" style="display: block; margin-top: 12px; background: #E11D48; color: #ffffff; padding: 15px; border-radius: 12px; font-size: 14px; font-weight: 500; text-decoration: none; text-align: center;">Contáctanos</a>
       </div>
     </sc-if>
   </header>
@@ -249,10 +249,10 @@
           <h3 data-en="Navigation" style="font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-weight: 500; color: #FAFBFD; font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; margin: 0 0 24px 0;">Navegación</h3>
           <div style="display: flex; flex-direction: column; gap: 16px;">
             <a href="index.html" data-en="Home" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Inicio</a>
-            <a href="Nosotros.dc.html" data-en="About Us" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Nosotros</a>
-            <a href="Productos.dc.html" data-en="Products" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Productos</a>
-            <a href="Farmacovigilancia.dc.html" data-en="Pharmacovigilance" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Farmacovigilancia</a>
-            <a href="Licencias.dc.html" data-en="Licensing &amp; Business" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Licencias y Negocios</a>
+            <a href="nosotros.html" data-en="About Us" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Nosotros</a>
+            <a href="productos.html" data-en="Products" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Productos</a>
+            <a href="farmacovigilancia.html" data-en="Pharmacovigilance" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Farmacovigilancia</a>
+            <a href="licencias.html" data-en="Licensing &amp; Business" style="font-size: 13px; color: rgba(250,251,253,0.72); text-decoration: none;" style-hover="color: #FAFBFD;">Licencias y Negocios</a>
           </div>
         </div>
       </div>
@@ -260,8 +260,9 @@
         <iframe title="Biofactor — Estomba 1058, Ciudad Autónoma de Buenos Aires" src="https://maps.google.com/maps?q=Estomba%201058%2C%20Ciudad%20Aut%C3%B3noma%20de%20Buenos%20Aires%2C%20Argentina&amp;z=16&amp;output=embed" style="display: block; width: 100%; height: 100%; border: 0;" loading="lazy"></iframe>
       </div>
       <div data-en="BIOFACTOR notes that the Internet is a global medium and the pharmaceutical industry is subject to country-specific regulations. This information is intended exclusively for healthcare professionals." style="background: rgba(250,251,253,0.06); color: rgba(250,251,253,0.6); font-size: 12px; line-height: 1.6; padding: 16px 24px; text-align: center; font-weight: 500; border: 1px solid rgba(250,251,253,0.1); border-radius: 8px; margin-bottom: 32px;">BIOFACTOR establece que Internet es un medio global y la industria farmacéutica está sujeta a regulaciones por país. La información es exclusivamente para profesionales de la salud.</div>
-      <div style="border-top: 1px solid rgba(250,251,253,0.1); padding-top: 32px; font-size: 12px; color: rgba(250,251,253,0.5);">
+      <div style="border-top: 1px solid rgba(250,251,253,0.1); padding-top: 32px; font-size: 12px; color: rgba(250,251,253,0.5); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
         <p data-en="Biofactor SA © 2026. All rights reserved." style="margin: 0;">Biofactor SA © 2026. Todos los derechos reservados.</p>
+        <a href="privacidad.html" data-en="Privacy Policy" style="color: rgba(250,251,253,0.5); text-decoration: none;">Políticas de Privacidad</a>
       </div>
     </div>
   </footer>
@@ -407,8 +408,8 @@ class Component extends DCLogic {
       sent,
       sentTitle: L === 'en' ? 'Report received' : 'Reporte recibido',
       sentBody: L === 'en'
-        ? 'Thank you for your report. Our Pharmacovigilance Department will review the information and get back to you if further details are needed.'
-        : 'Gracias por tu reporte. Nuestro Departamento de Farmacovigilancia revisará la información y se pondrá en contacto si se requieren más detalles.',
+        ? `Thank you for your report. Our Pharmacovigilance Department will review the information and get back to you if further details are needed. Reference ID: ${this.state.refId || ''}`
+        : `Gracias por tu reporte. Nuestro Departamento de Farmacovigilancia revisará la información y se pondrá en contacto si se requieren más detalles. ID de referencia: ${this.state.refId || ''}`,
       sentAgain: L === 'en' ? 'Submit another report' : 'Enviar otro reporte',
       reset: () => this.setState({ sent: false, step: 0, errorKey: null, hp: '', f: { reportante: '', email: '', telefono: '', medico: '', producto: '', lote: '', paciente: '', edad: '', sexo: '', peso: '', descripcion: '' } }),
 
@@ -422,13 +423,43 @@ class Component extends DCLogic {
         }
         this.setState((s) => ({ step: Math.min(2, s.step + 1), errorKey: null }));
       },
-      submit: () => {
+      submit: async () => {
         // Honeypot: los bots rellenan el campo oculto -> se descarta en silencio.
         if (this.state.hp && this.state.hp.trim() !== '') { this.setState({ sent: true }); return; }
         if (!f.descripcion.trim()) { this.setState({ errorKey: 'desc' }); return; }
         if (this.rateInfo().blocked) { this.setState({ errorKey: 'rate' }); return; }
+        
+        const refId = `BF-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${Math.floor(1000 + Math.random() * 9000)}`;
+        
+        try {
+          const body = new URLSearchParams({
+            "form-name": "farmacovigilancia",
+            "reportante": f.reportante,
+            "email": f.email,
+            "telefono": f.telefono,
+            "medico": f.medico ? "Si" : "No",
+            "producto": f.producto,
+            "lote": f.lote,
+            "paciente": f.paciente,
+            "edad": f.edad,
+            "sexo": f.sexo,
+            "peso": f.peso,
+            "descripcion": f.descripcion,
+            "refId": refId,
+            "bot-field": this.state.hp
+          }).toString();
+          
+          await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body
+          });
+        } catch (err) {
+          console.error(err);
+        }
+        
         this.recordSend();
-        this.setState({ sent: true, errorKey: null });
+        this.setState({ sent: true, errorKey: null, refId });
       }
     };
   }

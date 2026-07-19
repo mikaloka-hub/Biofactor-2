@@ -1,0 +1,26 @@
+name: Watchdog and Archive
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Run weekly on Sunday at 00:00
+  workflow_dispatch:
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Site (Watchdog)
+        run: |
+          HTTP_STATUS=$(curl -o /dev/null -s -w "%{http_code}\n" https://biofactor.com.ar)
+          if [ "$HTTP_STATUS" -ne 200 ]; then
+            echo "Site is down! Status code: $HTTP_STATUS"
+            exit 1
+          fi
+          echo "Site is up (200 OK)."
+
+      - name: Archive to Wayback Machine
+        run: |
+          curl -s "https://web.archive.org/save/https://biofactor.com.ar"
+          curl -s "https://web.archive.org/save/https://biofactor.com.ar/Productos"
+          curl -s "https://web.archive.org/save/https://biofactor.com.ar/Farmacovigilancia"
+          echo "Archived main pages to Wayback Machine."

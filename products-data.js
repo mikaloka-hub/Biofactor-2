@@ -1,4 +1,4 @@
-// Helper: parse a published Google Sheet CSV export into the Productos.dc.html data shape.
+// Helper: parse a published Google Sheet CSV export into the productos.html data shape.
 // Not a UI component — plain business logic, safe to import from the DC logic class.
 
 export function parseCsv(text) {
@@ -41,7 +41,7 @@ export function parseCsv(text) {
     });
 }
 
-// Groups flat sheet rows (one per product) into the category/items tree Productos.dc.html renders,
+// Groups flat sheet rows (one per product) into the category/items tree productos.html renders,
 // preserving the order categories and items first appear in.
 export function rowsToCategories(records) {
   const order = [];
