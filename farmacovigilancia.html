@@ -1,0 +1,512 @@
+<!DOCTYPE html><html lang="es"><head>
+
+    <title>Biofactor - Farmacovigilancia</title>
+    <meta name="description" content="Especialidades farmacéuticas de clase mundial. Innovación farmacéutica al servicio de la salud.">
+    <link rel="canonical" href="https://biofactor.com.ar/farmacovigilancia">
+    <link rel="alternate" hreflang="es-AR" href="https://biofactor.com.ar/farmacovigilancia">
+    <link rel="alternate" hreflang="en" href="https://biofactor.com.ar/en/farmacovigilancia">
+    <link rel="alternate" hreflang="x-default" href="https://biofactor.com.ar/farmacovigilancia">
+    
+  <style>
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script><style>x-dc{display:none!important}</style><script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script><script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
+<style></style><style>html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}</style><link rel="preconnect" href="https://fonts.googleapis.com" data-dc-tpl="1"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" data-dc-tpl="2"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" data-dc-tpl="3"><style data-dc-tpl="4">
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #FAFBFD; -webkit-font-smoothing: antialiased; }
+    a { color: #2563EB; }
+    a:hover { color: #1D4ED8; }
+    @media (max-width: 640px) { [data-media-card] { height: 280px !important; } [data-hero="true"] { padding: 112px 24px 72px 24px !important; } }
+    @media (max-width: 960px) { #main-nav { display: none !important; } #menu-toggle { display: flex !important; } }
+    @media (max-width: 520px) { [data-split-grid] { grid-template-columns: 1fr !important; } }
+    .bf-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+  </style></head>
+<body>
+<div id="dc-root"><div class="sc-host" data-sc-name="farmacovigilancia"><div data-dc-tpl="5" data-screen-label="Farmacovigilancia" style="font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: rgb(250, 251, 253); color: rgb(62, 77, 94); min-width: 320px;">
+
+  <header data-dc-tpl="6" style="position: sticky; top: 0px; z-index: 50; width: 100%; background: rgba(250, 251, 253, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(11, 19, 31, 0.06);">
+    <div data-dc-tpl="7" style="max-width: 1280px; margin: 0px auto; padding: 0px 32px; height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <a data-dc-tpl="8" href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+        <img data-dc-tpl="9" src="assets/biofactor_logo.png" alt="Biofactor" style="height: 46px; width: auto; display: block;">
+      </a>
+      <nav data-dc-tpl="10" id="main-nav" style="display: flex; align-items: center; gap: 28px;">
+        <a data-dc-tpl="11" href="index.html" data-navlink="true" data-en="Home" class="scp0" data-es="Inicio" style="font-size: 13px; font-weight: 500; color: rgb(138, 151, 166); text-decoration: none;">Inicio</a>
+        <a data-dc-tpl="12" href="nosotros.html" data-navlink="true" data-en="About Us" class="scp0" data-es="Nosotros" style="font-size: 13px; font-weight: 500; color: rgb(138, 151, 166); text-decoration: none;">Nosotros</a>
+        <a data-dc-tpl="13" href="productos.html" data-navlink="true" data-en="Products" class="scp0" data-es="Productos" style="font-size: 13px; font-weight: 500; color: rgb(138, 151, 166); text-decoration: none;">Productos</a>
+        <a data-dc-tpl="14" href="farmacovigilancia.html" data-navlink="true" data-en="Pharmacovigilance" data-es="Farmacovigilancia" style="font-size: 13px; font-weight: 600; color: rgb(11, 19, 31); text-decoration: none; letter-spacing: 0.01em;">Farmacovigilancia</a>
+        <a data-dc-tpl="15" href="licencias.html" data-navlink="true" data-en="Licensing &amp; Business" class="scp0" data-es="Licencias y Negocios" style="font-size: 13px; font-weight: 500; color: rgb(138, 151, 166); text-decoration: none;">Licencias y Negocios</a>
+        <div data-dc-tpl="16" style="display: flex; align-items: center; background: rgb(241, 245, 249); border: 1px solid rgba(11, 19, 31, 0.06); border-radius: 100px; padding: 3px;">
+          <button data-dc-tpl="17" style="border-width: medium; border-style: none; border-color: currentcolor; border-image: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: rgb(255, 255, 255); color: rgb(11, 19, 31); box-shadow: rgba(11, 19, 31, 0.12) 0px 1px 2px;">ES</button>
+          <button data-dc-tpl="18" style="border-width: medium; border-style: none; border-color: currentcolor; border-image: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: transparent; color: rgb(138, 151, 166); box-shadow: none;">EN</button>
+        </div>
+        <a data-dc-tpl="19" href="contacto.html" data-en="Contact Us" class="scp1" data-es="Contáctanos" style="background: rgb(225, 29, 72); color: rgb(255, 255, 255); padding: 11px 22px; border-radius: 12px; font-size: 13px; font-weight: 500; text-decoration: none; box-shadow: rgba(11, 19, 31, 0.08) 0px 1px 2px; transition: background 0.3s;">Contáctanos</a>
+      </nav>
+      <button data-dc-tpl="20" id="menu-toggle" aria-label="Menú" style="display: none; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(11, 19, 31, 0.12); border-radius: 12px; background: rgb(255, 255, 255); cursor: pointer; color: rgb(11, 19, 31); flex-shrink: 0;">
+        <svg data-dc-tpl="21" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path data-dc-tpl="22" d="M4 6h16"></path><path data-dc-tpl="23" d="M4 12h16"></path><path data-dc-tpl="24" d="M4 18h16"></path></svg>
+        <svg data-dc-tpl="25" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path data-dc-tpl="26" d="M18 6 6 18"></path><path data-dc-tpl="27" d="m6 6 12 12"></path></svg>
+      </button>
+    </div>
+    
+  </header>
+
+  <section data-dc-tpl="42" data-hero="true" style="position: relative; overflow: hidden; padding: 176px 32px 136px; text-align: center; background: rgb(11, 31, 58);">
+    <img data-dc-tpl="43" src="assets/Blood_tubes.jpg" srcset="assets/Blood_tubes-640.webp 640w, assets/Blood_tubes-1280.webp 1280w, assets/Blood_tubes.webp 1920w" loading="lazy" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
+    <div data-dc-tpl="44" style="position: absolute; inset: 0px; background: linear-gradient(rgba(11, 31, 58, 0.8) 0%, rgba(11, 31, 58, 0.55) 55%, rgba(11, 31, 58, 0.92) 100%);"></div>
+    <div data-dc-tpl="45" style="position: relative; max-width: 768px; margin: 0px auto;">
+      <h1 data-dc-tpl="46" data-reveal="1" data-en="Pharmacovigilance" data-es="Farmacovigilancia" style="font-family: Manrope, ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: clamp(44px, 6vw, 72px); line-height: 1.1; letter-spacing: -0.03em; color: rgb(250, 251, 253); margin: 0px 0px 32px; opacity: 1; transform: translateY(0px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">Farmacovigilancia</h1>
+      <p data-dc-tpl="47" data-reveal="2" data-en="The science dedicated to the detection, assessment, understanding and prevention of adverse effects of medicines." data-es="La ciencia orientada a la detección, evaluación, comprensión y prevención de los efectos adversos de los medicamentos." style="font-size: 19px; line-height: 1.7; color: rgba(250, 251, 253, 0.8); max-width: 640px; margin: 0px auto; opacity: 1; transform: translateY(0px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.24s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">La ciencia orientada a la detección, evaluación, comprensión y prevención de los efectos adversos de los medicamentos.</p>
+    </div>
+  </section>
+
+  <section data-dc-tpl="48" style="padding: 96px 0px; background: rgb(241, 245, 249);">
+    <div data-dc-tpl="49" data-split-grid="" style="max-width: 1280px; margin: 0px auto; padding: 0px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 80px; align-items: center;">
+      <div data-dc-tpl="50" data-reveal="" style="max-width: 560px; opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+        <span data-dc-tpl="51" data-en="WHO Guidelines" data-es="Normativas OMS" style="display: block; color: rgb(37, 99, 235); font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; font-size: 12px; margin-bottom: 24px;">Normativas OMS</span>
+        <h2 data-dc-tpl="52" data-en-html="Comprehensive&lt;br&gt;Patient Care" data-es-html="Cuidado integral&lt;br data-dc-tpl=&quot;53&quot;&gt;del Paciente" style="font-family: Manrope, ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -0.03em; color: rgb(11, 19, 31); margin: 0px 0px 32px;">Cuidado integral<br data-dc-tpl="53">del Paciente</h2>
+        <p data-dc-tpl="54" data-en="Knowledge about the toxicity arising from the use of medicines draws particular attention from patients, prescribers, dispensers and regulatory authorities." data-es="El conocimiento sobre la toxicidad derivada del uso de los medicamentos genera especial atención entre los pacientes, los prescriptores, los dispensadores y las autoridades regulatorias." style="font-size: 15px; line-height: 1.7; color: rgb(62, 77, 94); margin: 0px 0px 24px;">El conocimiento sobre la toxicidad derivada del uso de los medicamentos genera especial atención entre los pacientes, los prescriptores, los dispensadores y las autoridades regulatorias.</p>
+        <p data-dc-tpl="55" data-en="According to the WHO definition, Pharmacovigilance is the science and activities relating to the detection, assessment, understanding and prevention of adverse effects of medicines or any other medicine-related problem." data-es="Según la definición de la OMS, la Farmacovigilancia es la ciencia y las actividades relacionadas con la detección, evaluación, comprensión y prevención de los efectos adversos de los medicamentos o cualquier otro problema relacionado con ellos." style="font-size: 15px; line-height: 1.7; color: rgb(62, 77, 94); margin: 0px;">Según la definición de la OMS, la Farmacovigilancia es la ciencia y las actividades relacionadas con la detección, evaluación, comprensión y prevención de los efectos adversos de los medicamentos o cualquier otro problema relacionado con ellos.</p>
+      </div>
+      <div data-dc-tpl="56" data-reveal="" data-media-card="true" style="position: relative; height: 460px; border-radius: 16px; overflow: hidden; background: rgb(250, 251, 253); border: 1px solid rgba(11, 19, 31, 0.05); opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+        <img data-dc-tpl="57" src="assets/Farmacovigilancia.jpg" srcset="assets/Farmacovigilancia-640.webp 640w, assets/Farmacovigilancia-1280.webp 1280w, assets/Farmacovigilancia.webp 1920w" loading="lazy" alt="Laboratorio de investigación" style="width: 100%; height: 100%; object-fit: cover; object-position: right center; opacity: 0.95;">
+      </div>
+    </div>
+  </section>
+
+  <section data-dc-tpl="58" style="padding: 96px 32px; background: rgb(250, 251, 253);">
+    <div data-dc-tpl="59" data-reveal="" style="max-width: 896px; margin: 0px auto; background: rgb(241, 245, 249); border-radius: 16px; padding: 64px; text-align: center; border: 1px solid rgba(11, 19, 31, 0.05); opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+      <h3 data-dc-tpl="60" data-en="What is an Adverse Event (AE)?" data-es="¿Qué es un Evento Adverso (EA)?" style="font-family: Manrope, ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: clamp(28px, 3vw, 38px); letter-spacing: -0.03em; color: rgb(11, 19, 31); margin: 0px 0px 24px;">¿Qué es un Evento Adverso (EA)?</h3>
+      <p data-dc-tpl="61" data-en="Any untoward medical occurrence that may appear during treatment with a medicine, but which does not necessarily have a causal relationship with that treatment. In this case, there is a coincidence in time without any suspicion of a causal relationship." data-es="Cualquier suceso médico desafortunado que puede presentarse durante el tratamiento con un medicamento, pero que no necesariamente tiene una relación causal con dicho tratamiento. En este caso ocurre la coincidencia en el tiempo sin ninguna sospecha de una relación causal." style="font-size: 15px; line-height: 1.7; color: rgb(62, 77, 94); max-width: 620px; margin: 0px auto;">Cualquier suceso médico desafortunado que puede presentarse durante el tratamiento con un medicamento, pero que no necesariamente tiene una relación causal con dicho tratamiento. En este caso ocurre la coincidencia en el tiempo sin ninguna sospecha de una relación causal.</p>
+    </div>
+  </section>
+
+  <section data-dc-tpl="62" style="padding: 96px 32px 128px; background: rgb(241, 245, 249);">
+    <div data-dc-tpl="63" style="max-width: 768px; margin: 0px auto 56px; text-align: center;">
+      <span data-dc-tpl="64" data-reveal="" data-en="Official Form" data-es="Formulario Oficial" style="display: block; color: rgb(138, 151, 166); font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; font-size: 12px; margin-bottom: 24px; opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">Formulario Oficial</span>
+      <h2 data-dc-tpl="65" data-reveal="" data-en="Adverse Event Reporting" data-es="Reporte de Eventos Adversos" style="font-family: Manrope, ui-sans-serif, system-ui, sans-serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 48px); letter-spacing: -0.03em; color: rgb(11, 19, 31); margin: 0px 0px 24px; opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">Reporte de Eventos Adversos</h2>
+      <p data-dc-tpl="66" data-reveal="" data-en="Complete the three steps to reach our Pharmacovigilance Department directly." data-es="Complete los tres pasos para comunicarse directamente con nuestro Departamento de Farmacovigilancia." style="font-size: 17px; line-height: 1.7; color: rgb(62, 77, 94); margin: 0px; opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">Complete los tres pasos para comunicarse directamente con nuestro Departamento de Farmacovigilancia.</p>
+    </div>
+
+    <div data-dc-tpl="67" data-reveal="" style="max-width: 680px; margin: 0px auto; background: rgb(250, 251, 253); border-radius: 16px; box-shadow: rgba(11, 19, 31, 0.06) 0px 1px 3px; border: 1px solid rgba(11, 19, 31, 0.05); overflow: hidden; opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+
+      
+
+      
+        <div data-dc-tpl="77">
+          <div data-dc-tpl="78" style="display: flex; border-bottom: 1px solid rgba(11, 19, 31, 0.06);">
+            
+              <div data-dc-tpl="80" style="flex: 1 1 0%; padding: 20px 8px; text-align: center; border-bottom: 2px solid rgb(37, 99, 235); transition: border-color 0.4s;">
+                <span data-dc-tpl="81" style="display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgb(11, 19, 31);"><span class="sc-interp">1 · Reportante</span></span>
+              </div>
+            
+              <div data-dc-tpl="80" style="flex: 1 1 0%; padding: 20px 8px; text-align: center; border-bottom: 2px solid transparent; transition: border-color 0.4s;">
+                <span data-dc-tpl="81" style="display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgb(138, 151, 166);"><span class="sc-interp">2 · Medicamento y Paciente</span></span>
+              </div>
+            
+              <div data-dc-tpl="80" style="flex: 1 1 0%; padding: 20px 8px; text-align: center; border-bottom: 2px solid transparent; transition: border-color 0.4s;">
+                <span data-dc-tpl="81" style="display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgb(138, 151, 166);"><span class="sc-interp">3 · Descripción</span></span>
+              </div>
+            
+          </div>
+
+          <div data-dc-tpl="82" style="overflow: hidden;">
+            <div data-dc-tpl="83" style="display: flex; width: 300%; transform: translateX(0%); transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);">
+
+              <div data-dc-tpl="84" style="width: 33.3333%; flex-shrink: 0; padding: 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+                <input data-dc-tpl="85" type="text" tabindex="-1" autocomplete="off" class="bf-hp" aria-hidden="true" value="">
+                <div data-dc-tpl="86" style="display: flex; flex-direction: column; gap: 10px;">
+                  <label data-dc-tpl="87" data-en="Reporter's Name" data-es="Nombre del Reportante" style="font-size: 13px; font-weight: 500; color: rgb(11, 19, 31);">Nombre del Reportante</label>
+                  <input data-dc-tpl="88" type="text" data-en-ph="e.g. Dr. Martinez" placeholder="Ej. Dr. Martínez" class="scp4" value="" data-es-ph="Ej. Dr. Martínez" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 12px; background: rgb(241, 245, 249); border: 1px solid transparent; outline: none; font-size: 15px; color: rgb(11, 19, 31); font-family: inherit; transition: border-color 0.3s;">
+                </div>
+                <div data-dc-tpl="89" style="display: flex; flex-direction: column; gap: 10px;">
+                  <label data-dc-tpl="90" data-en="Email" data-es="Correo Electrónico" style="font-size: 13px; font-weight: 500; color: rgb(11, 19, 31);">Correo Electrónico</label>
+                  <input data-dc-tpl="91" type="email" placeholder="email@ejemplo.com" class="scp4" value="" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 12px; background: rgb(241, 245, 249); border: 1px solid transparent; outline: none; font-size: 15px; color: rgb(11, 19, 31); font-family: inherit; transition: border-color 0.3s;">
+                </div>
+                <div data-dc-tpl="92" style="display: flex; flex-direction: column; gap: 10px;">
+                  <label data-dc-tpl="93" data-en="Contact Phone" data-es="Teléfono de Contacto" style="font-size: 13px; font-weight: 500; color: rgb(11, 19, 31);">Teléfono de Contacto</label>
+                  <input data-dc-tpl="94" type="tel" placeholder="+54 11 ..." class="scp4" value="" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 12px; background: rgb(241, 245, 249); border: 1px solid transparent; outline: none; font-size: 15px; color: rgb(11, 19, 31); font-family: inherit; transition: border-color 0.3s;">
+                </div>
+                <div data-dc-tpl="95" style="display: flex; flex-direction: column; gap: 10px;">
+                  <label data-dc-tpl="96" data-en="Treating physician / institution" data-es="Médico / Institución tratante" style="font-size: 13px; font-weight: 500; color: rgb(11, 19, 31);">Médico / Institución tratante</label>
+                  <input data-dc-tpl="97" type="text" data-en-ph="Physician or institution name" placeholder="Nombre del médico o institución" class="scp4" value="" data-es-ph="Nombre del médico o institución" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 12px; background: rgb(241, 245, 249); border: 1px solid transparent; outline: none; font-size: 15px; color: rgb(11, 19, 31); font-family: inherit; transition: border-color 0.3s;">
+                </div>
+              </div>
+
+              <div data-dc-tpl="98" style="width: 33.3333%; flex-shrink: 0; padding: 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+                <div data-dc-tpl="99" style="display: flex; flex-direction: column; gap: 10px;">
+                  <label data-dc-tpl="100" data-en="Product Involved" data-es="Producto Involucrado" style="font-size: 13px; font-weight: 500; color: rgb(11, 19, 31);">Producto Involucrado</label>
+                  <select data-dc-tpl="101" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 12px; background: rgb(241, 245, 249); border: 1px solid transparent; outline: none; font-size: 15px; color: rgb(11, 19, 31); font-family: inherit; appearance: auto;">
+                    <option data-dc-tpl="102" value="" data-en="Select product…" data-es="Seleccionar producto…">Seleccionar producto…</option>
+                    
+                      <option data-dc-tpl="104" value="Aimafix"><span class="sc-interp">Aimafix</span></option>
+                    
+                      <option data-dc-tpl="104" value="AT III Kedrion"><span class="sc-interp">AT III Kedrion</span></option>
+                    
+                      <option data-dc-tpl="104" value="Bolsas de Sangre (TRO-DONEX)"><span class="sc-interp">Bolsas de Sangre (TRO-DONEX)</span></option>
+                    
+                      <option data-dc-tpl="104" value="Emoclot"><span class="sc-interp">Emoclot</span></option>
+                    
+                      <option data-dc-tpl="104" value="Emosint"><span class="sc-interp">Emosint</span></option>
+                    
+                      <option data-dc-tpl="104" value="IG Vena"><span class="sc-interp">IG Vena</span></option>
+                    
+                      <option data-dc-tpl="104" value="Immunorho"><span class="sc-interp">Immunorho</span></option>
+                    
+                      <option data-dc-tpl="104" value="Uman Albumin"><span class="sc-interp">Uman Albumin</span></option>
+                    
+                      <option data-dc-tpl="104" value="Uman Complex"><span class="sc-interp">Uman Complex</span></option>
+                    
+                      <option data-dc-tpl="104" value="Airbude HFA"><span class="sc-interp">Airbude HFA</span></option>
+                    
+                      <option data-dc-tpl="104" value="Airsalbu"><span class="sc-interp">Airsalbu</span></option>
+                    
+                      <option data-dc-tpl="104" value="MaxAir (Aerocámaras)"><span class="sc-interp">MaxAir (Aerocámaras)</span></option>
+                    
+                      <option data-dc-tpl="104" value="Streptofactor"><span class="sc-interp">Streptofactor</span></option>
+                    
+                      <option data-dc-tpl="104" value="Vitabren"><span class="sc-interp">Vitabren</span></option>
+                    
+                  </select>
+                </div>
+                <div data-dc-tpl="105" style="display: flex; flex-direction: column; gap: 10px;">
+                  <label data-dc-tpl="106" data-en="Presentation and Batch No." data-es="Presentación y N° de Lote" style="font-size: 13px; font-weight: 500; color: rgb(11, 19, 31);">Presentación y N° de Lote</label>
+                  <input data-dc-tpl="107" type="text" data-en-ph="e.g. 500 IU/10ml — Batch A1234" placeholder="Ej. 500 UI/10ml — Lote A1234" class="scp4" value="" data-es-ph="Ej. 500 UI/10ml — Lote A1234" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 12px; background: rgb(241, 245, 249); border: 1px solid transparent; outline: none; font-size: 15px; color: rgb(11, 19, 31); font-family: inherit; transition: border-color 0.3s;">
+                </div>
+                <div data-dc-tpl="108" style="display: flex; flex-direction: column; gap: 10px;">
+                  <label data-dc-tpl="109" data-en="Patient's Full Name" data-es="Nombre y Apellido del Paciente" style="font-size: 13px; font-weight: 500; color: rgb(11, 19, 31);">Nombre y Apellido del Paciente</label>
+                  <input data-dc-tpl="110" type="text" data-en-ph="Patient's name" placeholder="Nombre del paciente" class="scp4" value="" data-es-ph="Nombre del paciente" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 12px; background: rgb(241, 245, 249); border: 1px solid transparent; outline: none; font-size: 15px; color: rgb(11, 19, 31); font-family: inherit; transition: border-color 0.3s;">
+                </div>
+                <div data-dc-tpl="111" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                  <div data-dc-tpl="112" style="display: flex; flex-direction: column; gap: 10px;">
+                    <label data-dc-tpl="113" data-en="Age" data-es="Edad" style="font-size: 13px; font-weight: 500; color: rgb(11, 19, 31);">Edad</label>
+                    <input data-dc-tpl="114" type="text" data-en-ph="Years" placeholder="Años" class="scp4" value="" data-es-ph="Años" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 12px; background: rgb(241, 245, 249); border: 1px solid transparent; outline: none; font-size: 15px; color: rgb(11, 19, 31); font-family: inherit; transition: border-color 0.3s;">
+                  </div>
+                  <div data-dc-tpl="115" style="display: flex; flex-direction: column; gap: 10px;">
+                    <label data-dc-tpl="116" data-en="Sex" data-es="Sexo" style="font-size: 13px; font-weight: 500; color: rgb(11, 19, 31);">Sexo</label>
+                    <select data-dc-tpl="117" style="width: 100%; box-sizing: border-box; padding: 14px 12px; border-radius: 12px; background: rgb(241, 245, 249); border: 1px solid transparent; outline: none; font-size: 15px; color: rgb(11, 19, 31); font-family: inherit; appearance: auto;">
+                      <option data-dc-tpl="118" value="">—</option>
+                      <option data-dc-tpl="119" value="Femenino" data-en="Female" data-es="Femenino">Femenino</option>
+                      <option data-dc-tpl="120" value="Masculino" data-en="Male" data-es="Masculino">Masculino</option>
+                      <option data-dc-tpl="121" value="Otro" data-en="Other" data-es="Otro">Otro</option>
+                    </select>
+                  </div>
+                  <div data-dc-tpl="122" style="display: flex; flex-direction: column; gap: 10px;">
+                    <label data-dc-tpl="123" data-en="Weight" data-es="Peso" style="font-size: 13px; font-weight: 500; color: rgb(11, 19, 31);">Peso</label>
+                    <input data-dc-tpl="124" type="text" placeholder="kg" class="scp4" value="" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 12px; background: rgb(241, 245, 249); border: 1px solid transparent; outline: none; font-size: 15px; color: rgb(11, 19, 31); font-family: inherit; transition: border-color 0.3s;">
+                  </div>
+                </div>
+              </div>
+
+              <div data-dc-tpl="125" style="width: 33.3333%; flex-shrink: 0; padding: 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+                <div data-dc-tpl="126" style="display: flex; flex-direction: column; gap: 10px;">
+                  <label data-dc-tpl="127" data-en="Description of the Adverse Event" data-es="Descripción del Evento Adverso" style="font-size: 13px; font-weight: 500; color: rgb(11, 19, 31);">Descripción del Evento Adverso</label>
+                  <textarea data-dc-tpl="128" rows="8" data-en-ph="Describe the event that occurred in as much detail as possible…" placeholder="Describa el evento sucedido de la manera más detallada posible…" class="scp4" data-es-ph="Describa el evento sucedido de la manera más detallada posible…" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 12px; background: rgb(241, 245, 249); border: 1px solid transparent; outline: none; font-size: 15px; color: rgb(11, 19, 31); font-family: inherit; resize: none; line-height: 1.7; transition: border-color 0.3s;"></textarea>
+                </div>
+                <div data-dc-tpl="129" style="display: flex; align-items: flex-start; gap: 12px; background: rgb(255, 228, 230); border-radius: 12px; padding: 16px;">
+                  <svg data-dc-tpl="130" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle data-dc-tpl="131" cx="12" cy="12" r="10"></circle><path data-dc-tpl="132" d="M12 8v4"></path><path data-dc-tpl="133" d="M12 16h.01"></path></svg>
+                  <p data-dc-tpl="134" data-en="Your report will be directed straight to our Pharmacovigilance Department. Our team monitors this channel during business hours." data-es="Su reporte será dirigido directamente a nuestro Departamento de Farmacovigilancia. Nuestro equipo monitorea este canal en el horario de atención." style="font-size: 13px; line-height: 1.6; color: rgb(159, 18, 57); margin: 0px;">Su reporte será dirigido directamente a nuestro Departamento de Farmacovigilancia. Nuestro equipo monitorea este canal en el horario de atención.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          
+
+          <div data-dc-tpl="137" style="display: flex; justify-content: space-between; align-items: center; padding: 24px 48px 40px; gap: 16px;">
+            <button data-dc-tpl="138" class="scp2" style="visibility: hidden; display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 12px; border: 1px solid rgba(11, 19, 31, 0.12); background: transparent; color: rgb(62, 77, 94); font-size: 14px; font-weight: 500; cursor: pointer; font-family: inherit; transition: background 0.3s;">
+              <svg data-dc-tpl="139" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="140" d="M19 12H5"></path><path data-dc-tpl="141" d="m12 19-7-7 7-7"></path></svg>
+              <span data-dc-tpl="142" data-en="Previous" data-es="Anterior">Anterior</span>
+            </button>
+            
+            
+              <button data-dc-tpl="150" class="scp5" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; border-radius: 12px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(37, 99, 235); color: rgb(255, 255, 255); font-size: 14px; font-weight: 500; cursor: pointer; box-shadow: rgba(11, 19, 31, 0.08) 0px 1px 2px; font-family: inherit; transition: background 0.3s;">
+                <span data-dc-tpl="151" data-en="Next" data-es="Siguiente">Siguiente</span>
+                <svg data-dc-tpl="152" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="153" d="M5 12h14"></path><path data-dc-tpl="154" d="m12 5 7 7-7 7"></path></svg>
+              </button>
+            
+          </div>
+        </div>
+      
+    </div>
+  </section>
+
+  <footer data-dc-tpl="155" style="background: rgb(11, 31, 58); border-top: 1px solid rgba(250, 251, 253, 0.08); padding: 96px 0px 32px;">
+    <div data-dc-tpl="156" style="max-width: 1280px; margin: 0px auto; padding: 0px 32px;">
+      <div data-dc-tpl="157" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 64px; margin-bottom: 64px;">
+        <div data-dc-tpl="158" style="display: flex; flex-direction: column; gap: 24px;">
+          <img data-dc-tpl="159" src="assets/biofactor_logo.png" alt="Biofactor" style="height: 40px; width: auto; filter: brightness(0) invert(1); opacity: 0.92; align-self: flex-start;">
+          <p data-dc-tpl="160" data-en="Improving quality of life through responsible, ethical pharmaceutical innovation." data-es="Mejorando la calidad de vida a través de innovación farmacéutica responsable y ética." style="max-width: 300px; font-size: 13px; line-height: 1.7; color: rgba(250, 251, 253, 0.68); margin: 0px;">Mejorando la calidad de vida a través de innovación farmacéutica responsable y ética.</p>
+        </div>
+        <div data-dc-tpl="161">
+          <h3 data-dc-tpl="162" data-en="Contact" data-es="Contacto" style="font-family: Manrope, ui-sans-serif, system-ui, sans-serif; font-weight: 500; color: rgb(250, 251, 253); font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; margin: 0px 0px 24px;">Contacto</h3>
+          <div data-dc-tpl="163" style="display: flex; flex-direction: column; gap: 14px;">
+            <span data-dc-tpl="164" data-en-html="Estomba 1058, C1427COX,&lt;br&gt;Autonomous City of Buenos Aires, Argentina." data-es-html="Estomba 1058, C1427COX,&lt;br data-dc-tpl=&quot;165&quot;&gt;Cdad. Aut. de Buenos Aires, Argentina." style="font-size: 13px; line-height: 1.7; color: rgba(250, 251, 253, 0.72);">Estomba 1058, C1427COX,<br data-dc-tpl="165">Cdad. Aut. de Buenos Aires, Argentina.</span>
+            <span data-dc-tpl="166" style="font-size: 13px; color: rgba(250, 251, 253, 0.72);">+54 11 4551 7110</span>
+            <span data-dc-tpl="167" style="font-size: 13px; color: rgba(250, 251, 253, 0.72);">info@biofactor.com.ar</span>
+          </div>
+        </div>
+        <div data-dc-tpl="168">
+          <h3 data-dc-tpl="169" data-en="Navigation" data-es="Navegación" style="font-family: Manrope, ui-sans-serif, system-ui, sans-serif; font-weight: 500; color: rgb(250, 251, 253); font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; margin: 0px 0px 24px;">Navegación</h3>
+          <div data-dc-tpl="170" style="display: flex; flex-direction: column; gap: 16px;">
+            <a data-dc-tpl="171" href="index.html" data-en="Home" class="scp6" data-es="Inicio" style="font-size: 13px; color: rgba(250, 251, 253, 0.72); text-decoration: none;">Inicio</a>
+            <a data-dc-tpl="172" href="nosotros.html" data-en="About Us" class="scp6" data-es="Nosotros" style="font-size: 13px; color: rgba(250, 251, 253, 0.72); text-decoration: none;">Nosotros</a>
+            <a data-dc-tpl="173" href="productos.html" data-en="Products" class="scp6" data-es="Productos" style="font-size: 13px; color: rgba(250, 251, 253, 0.72); text-decoration: none;">Productos</a>
+            <a data-dc-tpl="174" href="farmacovigilancia.html" data-en="Pharmacovigilance" class="scp6" data-es="Farmacovigilancia" style="font-size: 13px; color: rgba(250, 251, 253, 0.72); text-decoration: none;">Farmacovigilancia</a>
+            <a data-dc-tpl="175" href="licencias.html" data-en="Licensing &amp; Business" class="scp6" data-es="Licencias y Negocios" style="font-size: 13px; color: rgba(250, 251, 253, 0.72); text-decoration: none;">Licencias y Negocios</a>
+          </div>
+        </div>
+      </div>
+      <div data-dc-tpl="176" style="border-radius: 16px; overflow: hidden; border: 1px solid rgba(250, 251, 253, 0.14); height: 300px; margin-bottom: 32px; background: rgb(14, 38, 66);">
+        <iframe data-dc-tpl="177" title="Biofactor — Estomba 1058, Ciudad Autónoma de Buenos Aires" src="https://maps.google.com/maps?q=Estomba%201058%2C%20Ciudad%20Aut%C3%B3noma%20de%20Buenos%20Aires%2C%20Argentina&amp;z=16&amp;output=embed" loading="lazy" style="display: block; width: 100%; height: 100%; border: 0px;"></iframe>
+      </div>
+      <div data-dc-tpl="178" data-en="BIOFACTOR notes that the Internet is a global medium and the pharmaceutical industry is subject to country-specific regulations. This information is intended exclusively for healthcare professionals." data-es="BIOFACTOR establece que Internet es un medio global y la industria farmacéutica está sujeta a regulaciones por país. La información es exclusivamente para profesionales de la salud." style="background: rgba(250, 251, 253, 0.06); color: rgba(250, 251, 253, 0.6); font-size: 12px; line-height: 1.6; padding: 16px 24px; text-align: center; font-weight: 500; border: 1px solid rgba(250, 251, 253, 0.1); border-radius: 8px; margin-bottom: 32px;">BIOFACTOR establece que Internet es un medio global y la industria farmacéutica está sujeta a regulaciones por país. La información es exclusivamente para profesionales de la salud.</div>
+      <div data-dc-tpl="179" style="border-top: 1px solid rgba(250, 251, 253, 0.1); padding-top: 32px; font-size: 12px; color: rgba(250, 251, 253, 0.5); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <p data-dc-tpl="180" data-en="Biofactor SA © 2026. All rights reserved." data-es="Biofactor SA © 2026. Todos los derechos reservados." style="margin: 0px;">Biofactor SA © 2026. Todos los derechos reservados.</p>
+        <a data-dc-tpl="181" href="privacidad.html" data-en="Privacy Policy" data-es="Políticas de Privacidad" style="color: rgba(250, 251, 253, 0.5); text-decoration: none;">Políticas de Privacidad</a>
+      </div>
+    </div>
+  </footer></div></div></div>
+<script type="text/x-dc" data-dc-script="">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lang: 'es', step: 0, sent: false, errorKey: null, hp: '',
+      f: { reportante: '', email: '', telefono: '', medico: '', producto: '', lote: '', paciente: '', edad: '', sexo: '', peso: '', descripcion: '' }
+    };
+    this._cleanup = [];
+  }
+
+  componentDidMount() {
+    let stored = 'es';
+    try { stored = localStorage.getItem('bf_lang') || 'es'; } catch (e) {}
+    this.applyLang(stored);
+    if (stored !== this.state.lang) this.setState({ lang: stored });
+    this.setupReveal();
+  }
+
+  componentDidUpdate() { this.applyLang(this.state.lang); }
+  componentWillUnmount() { this._cleanup.forEach((fn) => fn()); }
+
+  applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach((el) => {
+      if (!el.hasAttribute('data-es')) el.setAttribute('data-es', el.textContent);
+      el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-es');
+    });
+    document.querySelectorAll('[data-en-html]').forEach((el) => {
+      if (!el.hasAttribute('data-es-html')) el.setAttribute('data-es-html', el.innerHTML);
+      el.innerHTML = lang === 'en' ? el.getAttribute('data-en-html') : el.getAttribute('data-es-html');
+    });
+    document.querySelectorAll('[data-en-ph]').forEach((el) => {
+      if (!el.hasAttribute('data-es-ph')) el.setAttribute('data-es-ph', el.getAttribute('placeholder') || '');
+      el.setAttribute('placeholder', lang === 'en' ? el.getAttribute('data-en-ph') : el.getAttribute('data-es-ph'));
+    });
+    try { document.documentElement.lang = lang; } catch (e) {}
+  }
+
+  setLang(lang) {
+    try { localStorage.setItem('bf_lang', lang); } catch (e) {}
+    this.setState({ lang: lang });
+  }
+
+  setupReveal() {
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    els.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)';
+    });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const idx = parseInt(el.getAttribute('data-reveal') || '0', 10) || 0;
+          el.style.transitionDelay = (idx * 0.12) + 's';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          io.unobserve(el);
+        }
+      });
+    }, { rootMargin: '-80px' });
+    els.forEach((el) => io.observe(el));
+    this._cleanup.push(() => io.disconnect());
+  }
+
+  setField(key) {
+    return (e) => this.setState((s) => ({ f: Object.assign({}, s.f, { [key]: e.target.value }) }));
+  }
+
+  rateInfo() {
+    const now = Date.now();
+    let arr = [];
+    try { arr = JSON.parse(localStorage.getItem('bf_pv_ts') || '[]'); } catch (e) { arr = []; }
+    arr = arr.filter((t) => now - t < 3600000);
+    return { arr, blocked: arr.length >= 3 };
+  }
+
+  recordSend() {
+    const { arr } = this.rateInfo();
+    arr.push(Date.now());
+    try { localStorage.setItem('bf_pv_ts', JSON.stringify(arr)); } catch (e) {}
+  }
+
+  renderVals() {
+    const L = this.state.lang;
+    const { step, f, sent, errorKey } = this.state;
+
+    const labels = L === 'en'
+      ? ['1 · Reporter', '2 · Medicine and Patient', '3 · Description']
+      : ['1 · Reportante', '2 · Medicamento y Paciente', '3 · Descripción'];
+    const steps = labels.map((label, i) => ({
+      label,
+      barColor: i <= step ? '#2563EB' : 'transparent',
+      textColor: i === step ? '#0B131F' : (i < step ? '#2563EB' : '#8A97A6')
+    }));
+
+    const set = {};
+    Object.keys(f).forEach((k) => { set[k] = this.setField(k); });
+
+    const errors = {
+      step1: { es: 'Completá el nombre del reportante y un correo electrónico válido.', en: 'Please provide the reporter name and a valid email address.' },
+      product: { es: 'Seleccioná el producto involucrado antes de continuar.', en: 'Please select the product involved before continuing.' },
+      desc: { es: 'Describí el evento adverso antes de enviar el reporte.', en: 'Please describe the adverse event before submitting the report.' },
+      rate: { es: 'Alcanzaste el límite de reportes por hora. Probá nuevamente más tarde.', en: 'You have reached the hourly report limit. Please try again later.' }
+    };
+
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim());
+
+    const tk = { bg: '#FFFFFF', color: '#0B131F', shadow: '0 1px 2px rgba(11,19,31,0.12)' };
+    const idle = { bg: 'transparent', color: '#8A97A6', shadow: 'none' };
+    const es = L === 'es' ? tk : idle;
+    const en = L === 'en' ? tk : idle;
+
+    return {
+      setEs: () => this.setLang('es'),
+      setEn: () => this.setLang('en'),
+      menuOpen: !!this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      burgerDisplay: this.state.menuOpen ? 'none' : 'block',
+      closeDisplay: this.state.menuOpen ? 'block' : 'none',
+      esBg: es.bg, esColor: es.color, esShadow: es.shadow,
+      enBg: en.bg, enColor: en.color, enShadow: en.shadow,
+
+      steps,
+      slideX: (-step * 33.3333) + '%',
+      f, set,
+      hp: this.state.hp,
+      setHp: (e) => this.setState({ hp: e.target.value }),
+      productNames: ['Aimafix', 'AT III Kedrion', 'Bolsas de Sangre (TRO-DONEX)', 'Emoclot', 'Emosint', 'IG Vena', 'Immunorho', 'Uman Albumin', 'Uman Complex', 'Airbude HFA', 'Airsalbu', 'MaxAir (Aerocámaras)', 'Streptofactor', 'Vitabren'],
+      backVisibility: step === 0 ? 'hidden' : 'visible',
+      isLastStep: step === 2,
+      notLastStep: step < 2,
+      errorMsg: errorKey ? (errors[errorKey][L] || errors[errorKey].es) : null,
+
+      showForm: !sent,
+      sent,
+      sentTitle: L === 'en' ? 'Report received' : 'Reporte recibido',
+      sentBody: L === 'en'
+        ? `Thank you for your report. Our Pharmacovigilance Department will review the information and get back to you if further details are needed. Reference ID: ${this.state.refId || ''}`
+        : `Gracias por tu reporte. Nuestro Departamento de Farmacovigilancia revisará la información y se pondrá en contacto si se requieren más detalles. ID de referencia: ${this.state.refId || ''}`,
+      sentAgain: L === 'en' ? 'Submit another report' : 'Enviar otro reporte',
+      reset: () => this.setState({ sent: false, step: 0, errorKey: null, hp: '', f: { reportante: '', email: '', telefono: '', medico: '', producto: '', lote: '', paciente: '', edad: '', sexo: '', peso: '', descripcion: '' } }),
+
+      prevStep: () => this.setState((s) => ({ step: Math.max(0, s.step - 1), errorKey: null })),
+      nextStep: () => {
+        if (step === 0) {
+          if (!f.reportante.trim() || !emailOk) { this.setState({ errorKey: 'step1' }); return; }
+        }
+        if (step === 1) {
+          if (!f.producto) { this.setState({ errorKey: 'product' }); return; }
+        }
+        this.setState((s) => ({ step: Math.min(2, s.step + 1), errorKey: null }));
+      },
+      submit: async () => {
+        // Honeypot: los bots rellenan el campo oculto -> se descarta en silencio.
+        if (this.state.hp && this.state.hp.trim() !== '') { this.setState({ sent: true }); return; }
+        if (!f.descripcion.trim()) { this.setState({ errorKey: 'desc' }); return; }
+        if (this.rateInfo().blocked) { this.setState({ errorKey: 'rate' }); return; }
+        
+        const refId = `BF-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${Math.floor(1000 + Math.random() * 9000)}`;
+        
+        try {
+          const body = new URLSearchParams({
+            "form-name": "farmacovigilancia",
+            "reportante": f.reportante,
+            "email": f.email,
+            "telefono": f.telefono,
+            "medico": f.medico ? "Si" : "No",
+            "producto": f.producto,
+            "lote": f.lote,
+            "paciente": f.paciente,
+            "edad": f.edad,
+            "sexo": f.sexo,
+            "peso": f.peso,
+            "descripcion": f.descripcion,
+            "refId": refId,
+            "bot-field": this.state.hp
+          }).toString();
+          
+          await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body
+          });
+        } catch (err) {
+          console.error(err);
+        }
+        
+        this.recordSend();
+        this.setState({ sent: true, errorKey: null, refId });
+      }
+    };
+  }
+}
+</script>
+
+
+<form name="farmacovigilancia" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="bot-field" hidden><input type="text" name="reportante"><input type="email" name="email"><input type="text" name="telefono"><input type="text" name="medico"><input type="text" name="producto"><input type="text" name="lote"><input type="text" name="paciente"><input type="text" name="edad"><input type="text" name="sexo"><input type="text" name="peso"><textarea name="descripcion"></textarea><input type="text" name="refId"><input name="bot-field"></form></body></html>
