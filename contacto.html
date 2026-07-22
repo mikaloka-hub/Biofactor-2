@@ -227,7 +227,7 @@ class Component extends DCLogic {
   constructor(props) {
     super(props);
     this.state = {
-      lang: 'es', inquiry: 'licencias', sent: false, errorKey: null, hp: '',
+      lang: 'es', inquiry: 'licencias', sent: false, submitting: false, errorKey: null, hp: '', refId: null,
       f: { nombre: '', apellido: '', email: '', mensaje: '' }
     };
     this._cleanup = [];
@@ -336,7 +336,8 @@ class Component extends DCLogic {
     const errors = {
       required: { es: 'Por favor completá todos los campos antes de enviar.', en: 'Please fill in all fields before sending.' },
       email: { es: 'Ingresá un correo electrónico válido.', en: 'Please enter a valid email address.' },
-      rate: { es: 'Alcanzaste el límite de envíos por hora. Probá nuevamente más tarde.', en: 'You have reached the hourly submission limit. Please try again later.' }
+      rate: { es: 'Alcanzaste el límite de envíos por hora. Probá nuevamente más tarde.', en: 'You have reached the hourly submission limit. Please try again later.' },
+      network: { es: 'No pudimos enviar tu mensaje. Por favor reintentá o escribinos directamente a info@biofactor.com.ar.', en: 'We could not send your message. Please retry or email us directly at info@biofactor.com.ar.' }
     };
 
     const tk = { bg: '#FFFFFF', color: '#0B131F', shadow: '0 1px 2px rgba(11,19,31,0.12)' };
@@ -359,11 +360,12 @@ class Component extends DCLogic {
       showForm: !sent,
       sent,
       sentTitle: L === 'en' ? 'Message sent' : 'Mensaje enviado',
-      sentBody: L === 'en'
+      sentBody: (L === 'en'
         ? 'Thank you for reaching out. Our team will review your message and get back to you shortly.'
-        : 'Gracias por escribirnos. Nuestro equipo revisará tu mensaje y te responderá a la brevedad.',
+        : 'Gracias por escribirnos. Nuestro equipo revisará tu mensaje y te responderá a la brevedad.')
+        + (this.state.refId ? (L === 'en' ? ' Reference ID: ' : ' ID de referencia: ') + this.state.refId : ''),
       sentAgain: L === 'en' ? 'Send another message' : 'Enviar otro mensaje',
-      reset: () => this.setState({ sent: false, errorKey: null, hp: '', f: { nombre: '', apellido: '', email: '', mensaje: '' } }),
+      reset: () => this.setState({ sent: false, submitting: false, errorKey: null, hp: '', refId: null, f: { nombre: '', apellido: '', email: '', mensaje: '' } }),
 
       criticalNoticePre: L === 'en'
         ? 'For adverse events or critical safety reports, please use our urgent Pharmacovigilance channel. '
@@ -385,11 +387,16 @@ class Component extends DCLogic {
         e.preventDefault();
         // Honeypot: si un bot rellena el campo oculto, se descarta en silencio.
         if (this.state.hp && this.state.hp.trim() !== '') { this.setState({ sent: true }); return; }
-        const nombre = f.nombre.trim(), apellido = f.apellido.trim(), email = f.email.trim(), mensaje = f.mensaje.trim();
+        // Sanea: quita etiquetas HTML, recorta y aplica límites de longitud.
+        const clean = (v, max) => String(v == null ? '' : v).replace(/<[^>]*>/g, '').trim().slice(0, max);
+        const nombre = clean(f.nombre, 100), apellido = clean(f.apellido, 100), email = clean(f.email, 200), mensaje = clean(f.mensaje, 5000);
         if (!nombre || !apellido || !email || !mensaje) { this.setState({ errorKey: 'required' }); return; }
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { this.setState({ errorKey: 'email' }); return; }
         if (this.rateInfo().blocked) { this.setState({ errorKey: 'rate' }); return; }
-        
+        if (this.state.submitting) return;
+
+        const refId = 'BF-' + Date.now().toString(36).toUpperCase();
+        this.setState({ submitting: true, errorKey: null });
         try {
           const body = new URLSearchParams({
             "form-name": "contacto",
@@ -398,23 +405,39 @@ class Component extends DCLogic {
             "apellido": apellido,
             "email": email,
             "mensaje": mensaje,
+            "refId": refId,
             "bot-field": this.state.hp
           }).toString();
-          await fetch("/", {
+          const res = await fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body
           });
+          // Solo mostramos éxito si Netlify aceptó el envío (2xx). Si no, mostramos error real.
+          if (!res.ok) throw new Error('HTTP ' + res.status);
         } catch (err) {
           console.error(err);
+          this.setState({ submitting: false, errorKey: 'network' });
+          return;
         }
-        
         this.recordSend();
-        this.setState({ sent: true, errorKey: null });
+        this.setState({ sent: true, submitting: false, errorKey: null, refId });
       }
     };
   }
 }
 </script>
+<!-- Formulario estático oculto: Netlify lo detecta en el deploy y registra el
+     formulario "contacto". El formulario visible (arriba) envía por fetch a "/".
+     Los names deben coincidir exactamente con los campos que se envían. -->
+<form name="contacto" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="area">
+  <input type="text" name="nombre">
+  <input type="text" name="apellido">
+  <input type="email" name="email">
+  <textarea name="mensaje"></textarea>
+  <input type="text" name="refId">
+  <input type="text" name="bot-field">
+</form>
 </body>
 </html>

@@ -270,11 +270,19 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
+// === Casilla de Farmacovigilancia (ÚNICO lugar en el código) ===
+// Para cambiar el destino de los avisos: (1) actualizá este valor Y
+// (2) cambiá la notificación del formulario en Netlify (Forms → farmacovigilancia
+//     → Form notifications → email). Este valor solo alimenta el texto de respaldo
+//     que se muestra al reportante si el envío falla.
+const PHARMACOVIGILANCE_INBOX = 'info@biofactor.com.ar';
+const ANMAT_URL = 'https://sistemas.anmat.gov.ar/aplicaciones_net/applications/fvg_eventos_adversos_nuevo/index.html';
+
 class Component extends DCLogic {
   constructor(props) {
     super(props);
     this.state = {
-      lang: 'es', step: 0, sent: false, errorKey: null, hp: '',
+      lang: 'es', step: 0, sent: false, submitting: false, errorKey: null, hp: '', refId: null,
       f: { reportante: '', email: '', telefono: '', medico: '', producto: '', lote: '', paciente: '', edad: '', sexo: '', peso: '', descripcion: '' }
     };
     this._cleanup = [];
@@ -373,7 +381,10 @@ class Component extends DCLogic {
       step1: { es: 'Completá el nombre del reportante y un correo electrónico válido.', en: 'Please provide the reporter name and a valid email address.' },
       product: { es: 'Seleccioná el producto involucrado antes de continuar.', en: 'Please select the product involved before continuing.' },
       desc: { es: 'Describí el evento adverso antes de enviar el reporte.', en: 'Please describe the adverse event before submitting the report.' },
-      rate: { es: 'Alcanzaste el límite de reportes por hora. Probá nuevamente más tarde.', en: 'You have reached the hourly report limit. Please try again later.' }
+      network: {
+        es: 'No pudimos registrar tu reporte. Por favor reintentá. Si el problema persiste, escribí directamente a ' + PHARMACOVIGILANCE_INBOX + ' o cargá el reporte en ANMAT: ' + ANMAT_URL,
+        en: 'We could not register your report. Please retry. If the problem persists, email ' + PHARMACOVIGILANCE_INBOX + ' directly, or file it with ANMAT: ' + ANMAT_URL
+      }
     };
 
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim());
@@ -411,7 +422,7 @@ class Component extends DCLogic {
         ? `Thank you for your report. Our Pharmacovigilance Department will review the information and get back to you if further details are needed. Reference ID: ${this.state.refId || ''}`
         : `Gracias por tu reporte. Nuestro Departamento de Farmacovigilancia revisará la información y se pondrá en contacto si se requieren más detalles. ID de referencia: ${this.state.refId || ''}`,
       sentAgain: L === 'en' ? 'Submit another report' : 'Enviar otro reporte',
-      reset: () => this.setState({ sent: false, step: 0, errorKey: null, hp: '', f: { reportante: '', email: '', telefono: '', medico: '', producto: '', lote: '', paciente: '', edad: '', sexo: '', peso: '', descripcion: '' } }),
+      reset: () => this.setState({ sent: false, submitting: false, step: 0, errorKey: null, hp: '', refId: null, f: { reportante: '', email: '', telefono: '', medico: '', producto: '', lote: '', paciente: '', edad: '', sexo: '', peso: '', descripcion: '' } }),
 
       prevStep: () => this.setState((s) => ({ step: Math.max(0, s.step - 1), errorKey: null })),
       nextStep: () => {
@@ -427,43 +438,67 @@ class Component extends DCLogic {
         // Honeypot: los bots rellenan el campo oculto -> se descarta en silencio.
         if (this.state.hp && this.state.hp.trim() !== '') { this.setState({ sent: true }); return; }
         if (!f.descripcion.trim()) { this.setState({ errorKey: 'desc' }); return; }
-        if (this.rateInfo().blocked) { this.setState({ errorKey: 'rate' }); return; }
-        
+        // NUNCA bloqueamos un reporte de evento adverso (prioridad #1: seguridad del reporte).
+        if (this.state.submitting) return;
+
         const refId = `BF-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${Math.floor(1000 + Math.random() * 9000)}`;
-        
+        // Sanea: quita etiquetas HTML, recorta y aplica límites de longitud.
+        const clean = (v, max) => String(v == null ? '' : v).replace(/<[^>]*>/g, '').trim().slice(0, max);
+        this.setState({ submitting: true, errorKey: null });
         try {
           const body = new URLSearchParams({
             "form-name": "farmacovigilancia",
-            "reportante": f.reportante,
-            "email": f.email,
-            "telefono": f.telefono,
-            "medico": f.medico ? "Si" : "No",
-            "producto": f.producto,
-            "lote": f.lote,
-            "paciente": f.paciente,
-            "edad": f.edad,
-            "sexo": f.sexo,
-            "peso": f.peso,
-            "descripcion": f.descripcion,
+            "reportante": clean(f.reportante, 100),
+            "email": clean(f.email, 200),
+            "telefono": clean(f.telefono, 50),
+            "medico": clean(f.medico, 200),
+            "producto": clean(f.producto, 200),
+            "lote": clean(f.lote, 200),
+            "paciente": clean(f.paciente, 200),
+            "edad": clean(f.edad, 20),
+            "sexo": clean(f.sexo, 20),
+            "peso": clean(f.peso, 20),
+            "descripcion": clean(f.descripcion, 10000),
             "refId": refId,
             "bot-field": this.state.hp
           }).toString();
-          
-          await fetch("/", {
+
+          const res = await fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body
           });
+          // Solo confirmamos recepción si Netlify aceptó el envío (2xx).
+          if (!res.ok) throw new Error('HTTP ' + res.status);
         } catch (err) {
           console.error(err);
+          this.setState({ submitting: false, errorKey: 'network' });
+          return;
         }
-        
         this.recordSend();
-        this.setState({ sent: true, errorKey: null, refId });
+        this.setState({ sent: true, submitting: false, errorKey: null, refId });
       }
     };
   }
 }
 </script>
+<!-- Formulario estático oculto: Netlify lo detecta en el deploy y registra el
+     formulario "farmacovigilancia". El asistente visible (arriba) envía por fetch
+     a "/". Los names deben coincidir con los campos enviados. -->
+<form name="farmacovigilancia" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="reportante">
+  <input type="email" name="email">
+  <input type="tel" name="telefono">
+  <input type="text" name="medico">
+  <input type="text" name="producto">
+  <input type="text" name="lote">
+  <input type="text" name="paciente">
+  <input type="text" name="edad">
+  <input type="text" name="sexo">
+  <input type="text" name="peso">
+  <textarea name="descripcion"></textarea>
+  <input type="text" name="refId">
+  <input type="text" name="bot-field">
+</form>
 </body>
 </html>
