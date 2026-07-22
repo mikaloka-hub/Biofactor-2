@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://biofactor.com.ar/sitemap.xml
