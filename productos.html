@@ -151,7 +151,7 @@
     </div>
 
     <sc-if value="{{ selected }}" hint-placeholder-val="{{ false }}">
-      <div id="detail-panel" style="width: 46%; flex-shrink: 0; background: #F1F5F9; border-radius: 16px; padding: 48px; position: sticky; top: 108px; max-height: calc(100vh - 132px); overflow-y: auto; z-index: 40;">
+      <div id="detail-panel" style="width: 46%; flex-shrink: 0; box-sizing: border-box; background: #F1F5F9; border-radius: 16px; padding: 48px; position: sticky; top: 108px; max-height: calc(100vh - 132px); overflow-y: auto; z-index: 40;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px;">
           <span style="display: inline-block; background: #ffffff; color: #0B131F; font-weight: 500; padding: 7px 16px; border-radius: 100px; font-size: 12px; border: 1px solid rgba(11,19,31,0.05); box-shadow: 0 1px 2px rgba(11,19,31,0.05);">{{ selected.cat }}</span>
           <button onClick="{{ clearSelected }}" aria-label="Cerrar" style="padding: 8px; background: transparent; border: none; border-radius: 12px; color: #8A97A6; cursor: pointer; transition: color 0.3s, background 0.3s;" style-hover="color: #0B131F; background: #FAFBFD;">
