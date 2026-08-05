@@ -41,6 +41,21 @@ export function parseCsv(text) {
     });
 }
 
+// Normalizes an image URL from the sheet into something an <img src> can actually render.
+// A Google Drive "Share" link (…/file/d/ID/view, open?id=ID, uc?id=ID) points at a viewer
+// PAGE, not the image file, so it never renders. Rewrite it to Drive's direct thumbnail
+// endpoint so the client can just paste the normal Drive share link and have it work.
+// (The Drive file must be shared as "Anyone with the link".) Any other URL is left as-is.
+export function normalizeImageUrl(url) {
+  const u = (url || '').trim();
+  if (!u) return '';
+  if (/drive\.google\.com/.test(u)) {
+    const m = u.match(/\/file\/d\/([\w-]+)/) || u.match(/[?&]id=([\w-]+)/);
+    if (m) return 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w1000';
+  }
+  return u;
+}
+
 // Groups flat sheet rows (one per product) into the category/items tree productos.html renders,
 // preserving the order categories and items first appear in.
 export function rowsToCategories(records) {
@@ -57,7 +72,7 @@ export function rowsToCategories(records) {
       status: (r.status || '').trim() || undefined,
       pdf: (r.pdf_url || '').trim(),
       gln: r.gln || '',
-      image: r.image_url || '',
+      image: normalizeImageUrl(r.image_url),
       principio: { es: r.principio_es || '', en: r.principio_en || r.principio_es || '' },
       presentacion: { es: r.presentacion_es || '', en: r.presentacion_en || r.presentacion_es || '' },
       indicaciones: { es: r.indicaciones_es || '', en: r.indicaciones_en || r.indicaciones_es || '' },
