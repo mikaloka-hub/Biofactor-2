@@ -22,9 +22,11 @@
     a:hover { color: #1D4ED8; }
     @media (max-width: 640px) { [data-media-card] { height: 280px !important; } [data-hero="true"] { padding: 112px 24px 72px 24px !important; } }
     @media (max-width: 1120px) {
-      #nav-left, #nav-right { display: none !important; }
+      #nav-left, #nav-right, #lang-toggle { display: none !important; }
       #menu-toggle { display: flex !important; }
-      #header-inner { height: 76px !important; }
+      /* las nav dejan de ser grid items al ocultarse, así que el logo se auto-ubicaría
+         en la primera columna: se pasa a una sola columna centrada */
+      #header-inner { grid-template-columns: 1fr !important; justify-items: center !important; height: 76px !important; }
       #header-logo img { height: 44px !important; }
     }
     @media (max-width: 900px) { [data-split-grid] { grid-template-columns: 1fr !important; gap: 48px !important; } }
@@ -35,32 +37,32 @@
 <div style="font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; background: #FAFBFD; color: #3E4D5E; min-width: 320px;" data-screen-label="Contacto">
 
   <header style="position: sticky; top: 0; z-index: 50; width: 100%; background: #FFFFFF; border-bottom: 1px solid rgba(11,19,31,0.06);">
-    <div id="header-inner" style="max-width: 1360px; margin: 0 auto; padding: 0 32px; height: 96px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px;">
+    <div id="header-inner" style="position: relative; max-width: 1360px; margin: 0 auto; padding: 0 32px; height: 96px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 44px;">
 
-      <div style="display: flex; align-items: center; gap: 34px; min-width: 0;">
-        <button id="menu-toggle" onClick="{{ toggleMenu }}" aria-label="Menú" style="display: none; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(11,19,31,0.12); border-radius: 12px; background: #FFFFFF; cursor: pointer; color: #0B131F; flex-shrink: 0;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: {{ burgerDisplay }};"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h16"></path></svg>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: {{ closeDisplay }};"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
-        </button>
-        <nav id="nav-left" style="display: flex; align-items: center; gap: 34px;">
+      <button id="menu-toggle" onClick="{{ toggleMenu }}" aria-label="Menú" style="display: none; position: absolute; left: 32px; top: 50%; transform: translateY(-50%); align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(11,19,31,0.12); border-radius: 12px; background: #FFFFFF; cursor: pointer; color: #0B131F;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: {{ burgerDisplay }};"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h16"></path></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: {{ closeDisplay }};"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+
+      <nav id="nav-left" style="display: flex; align-items: center; justify-content: flex-end; gap: 34px;">
           <a href="index.html" data-navlink="true" data-en="Home" style="font-size: 15px; font-weight: 500; color: #8A97A6; text-decoration: none; white-space: nowrap;" style-hover="color: #0B131F;">Inicio</a>
           <a href="nosotros.html" data-navlink="true" data-en="About Us" style="font-size: 15px; font-weight: 500; color: #8A97A6; text-decoration: none; white-space: nowrap;" style-hover="color: #0B131F;">Nosotros</a>
           <a href="productos.html" data-navlink="true" data-en="Products" style="font-size: 15px; font-weight: 500; color: #8A97A6; text-decoration: none; white-space: nowrap;" style-hover="color: #0B131F;">Productos</a>
-        </nav>
-      </div>
+      </nav>
 
       <a href="index.html" id="header-logo" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">
-        <img src="assets/biofactor_logo.png" alt="Biofactor" style="height: 62px; width: auto; display: block;">
+        <img src="assets/biofactor_logo.png" alt="Biofactor" style="height: 70px; width: auto; display: block;">
       </a>
 
-      <nav id="nav-right" style="display: flex; align-items: center; justify-content: flex-end; gap: 34px;">
+      <nav id="nav-right" style="display: flex; align-items: center; justify-content: flex-start; gap: 34px;">
           <a href="farmacovigilancia.html" data-navlink="true" data-en="Pharmacovigilance" style="font-size: 15px; font-weight: 500; color: #8A97A6; text-decoration: none; white-space: nowrap;" style-hover="color: #0B131F;">Farmacovigilancia</a>
           <a href="licencias.html" data-navlink="true" data-en="Licensing &amp; Business" style="font-size: 15px; font-weight: 500; color: #8A97A6; text-decoration: none; white-space: nowrap;" style-hover="color: #0B131F;">Licencias y Negocios</a>
-          <div style="display: flex; align-items: center; background: #F1F5F9; border: 1px solid rgba(11,19,31,0.06); border-radius: 100px; padding: 3px;">
-            <button onClick="{{ setEs }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: {{ esBg }}; color: {{ esColor }}; box-shadow: {{ esShadow }};">ES</button>
-            <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: {{ enBg }}; color: {{ enColor }}; box-shadow: {{ enShadow }};">EN</button>
-          </div>
       </nav>
+
+      <div id="lang-toggle" style="display: flex; align-items: center; background: #F1F5F9; border: 1px solid rgba(11,19,31,0.06); border-radius: 100px; padding: 3px; position: absolute; right: 32px; top: 50%; transform: translateY(-50%);">
+        <button onClick="{{ setEs }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: {{ esBg }}; color: {{ esColor }}; box-shadow: {{ esShadow }};">ES</button>
+        <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 100px; background: {{ enBg }}; color: {{ enColor }}; box-shadow: {{ enShadow }};">EN</button>
+      </div>
     </div>
     <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
       <div style="position: absolute; top: 100%; left: 0; right: 0; background: #FFFFFF; border-bottom: 1px solid rgba(11,19,31,0.08); box-shadow: 0 32px 48px rgba(11,19,31,0.16); padding: 12px 20px 24px 20px; display: flex; flex-direction: column; gap: 2px; z-index: 60;">
