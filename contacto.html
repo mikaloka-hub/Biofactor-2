@@ -27,7 +27,7 @@
       /* las nav dejan de ser grid items al ocultarse, así que el logo se auto-ubicaría
          en la primera columna: se pasa a una sola columna centrada */
       #header-inner { grid-template-columns: 1fr !important; justify-items: center !important; height: 76px !important; }
-      #header-logo img { height: 44px !important; }
+      #logo-horizontal { display: none !important; } #logo-stacked { display: block !important; }
     }
     @media (max-width: 900px) { [data-split-grid] { grid-template-columns: 1fr !important; gap: 48px !important; } }
     .bf-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
@@ -51,7 +51,8 @@
       </nav>
 
       <a href="index.html" id="header-logo" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">
-        <img src="assets/biofactor_logo.png" alt="Biofactor" style="height: 70px; width: auto; display: block;">
+        <img id="logo-horizontal" src="assets/biofactor_logo_horizontal.png" alt="Biofactor" style="height: 52px; width: auto; display: block;">
+        <img id="logo-stacked" src="assets/biofactor_logo.png" alt="Biofactor" style="height: 44px; width: auto; display: none;">
       </a>
 
       <nav id="nav-right" style="display: flex; align-items: center; justify-content: flex-start; gap: 34px;">
